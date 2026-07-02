@@ -1,0 +1,195 @@
+---
+title: Scatterplots and Relationships
+teaching: 20
+exercises: 10
+source: Rmd
+---
+  
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Create scatterplots to explore relationships between variables.
+- Distinguish between aesthetic mappings and aesthetic settings.
+- Add and modify layers in a ggplot.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+  
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- How can scatterplots be used to explore relationships between variables?
+- How do aesthetic mappings and layers help reveal patterns in data?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+  
+We've seen how plots can be created quickly using the key components of a `ggplot` and we know that scatter plots can be used to explore relationships between variables in our dataset.
+
+Let's take a closer look at the relationship between engine size (`displ`) and city fuel efficiency (`cty`). We will also explore how additional aesthetic mappings and layers can help reveal patterns in the data.
+
+Recall our displacement vs highway fuel efficiency plot.
+
+
+``` r
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = cty)) + 
+  geom_point()
+```
+
+
+## Mapping and Setting Aesthetics
+
+So far, we have mapped variables to the x- and y-axes. We can also control other visual properties, such as colour, size, and shape in two ways. We can **map** them to variables in our data, or **set** them to a fixed value that is applied to all observations. 
+
+For example, we can **map** a colour to each `class` of vehicle.
+
+
+``` r
+ggplot(data = mpg, mapping = aes(x = displ, y = cty,
+                                 colour = class)) + 
+  geom_point()
+```
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Aesthetics - Colour trends
+
+- What trends do the colours bring out in the data? 
+- Are they what you expected?
+
+:::::::::::::::  solution
+
+Answers may vary.
+
+:::::::::::::::::::::::::
+  
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+In the above example we used a variable to control the colouring of the datapoints. We can also **set** a fixed value.
+
+Lets modify the transparency of the points, using the `alpha` argument, which is especially helpful when you have a large amount of data which is very clustered.
+
+
+``` r
+ggplot(data = mpg, mapping = aes(x = displ, y = cty,
+                                 colour = class)) + 
+  geom_point(alpha = 0.3)
+```
+
+Finally, we both map and set aethestics for a **geom**. In this example, we will move the colour by class aesthetic to the specific geom_point(). This plot should look like the one above, we've only moved the coloring to the layer in order to make more complex visualisations.
+
+
+``` r
+ggplot(data = mpg, mapping = aes(x = displ, y = cty)) + 
+  geom_point(aes(colour = class), alpha = 0.3)
+```
+
+Here the colour mapping only applies to the points because it was specified within `geom_point()`. This allows different layers to use different aesthetic mappings.
+
+Changing the way a dataset is displayed visually is useful for distinguishing patterns and extracting information. Taking it one step further, we can add more **geoms** to our plot to highlight relationships in the data.
+
+## Layers
+
+Layers in `ggplot2` are building blocks stacked on top of each other to create more and more complex plots.
+
+Let's add  `geom_smooth()` layer to the plot. Recall we use the `+` symbol to stack the layers:
+  
+
+``` r
+ggplot(data = mpg, mapping = aes(x = displ, y = cty)) + 
+  geom_point(aes(colour = class), alpha = 0.3) +
+  geom_smooth()
+```
+
+The `geom_smooth()` layer adds a trend line to the plot, making the overall relationship between engine size and fuel efficiency easier to see. In this case, it highlights that fuel efficiency tends to decrease as engine size increases.
+
+It's important to note that each layer is drawn on top of the previous layer. In the plot above, the line has been drawn *on top of* the points. 
+
+What if we wanted to see the points on top of the lines?
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Layer Order Matters
+
+Switch the order of the point and smooth layers from the previous example. What happened?
+
+:::::::::::::::  solution
+To demonstrate, rearrange the drawing order:
+  
+The points now get drawn over the line! If we look closely the smooth line was drawn first, followed by the points.
+
+
+``` r
+ggplot(data = mpg, mapping = aes(x = displ, y = cty)) + 
+  geom_smooth() +
+  geom_point(aes(colour = class), alpha = 0.3)
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Tip: More aesthetics setting and mapping
+
+So far, we've seen how to use an aesthetic (such as **color**) as a *mapping* to a variable in the data. 
+
+For example, when we use `geom_point(aes(color = class))`, ggplot will give a different color to each class. 
+
+But what if we want to change the color of all lines to blue? 
+
+You may think that `geom_point(aes(color = "blue"))` should work, but it doesn't. 
+
+Since we don't want to create a mapping to a specific variable, we move the color specification outside of the `aes()` function, like this: `geom_point(color="blue")`.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Setting Aesthetics
+
+Modify the color and size of the points on the point layer in the previous example.
+
+Hint: do not use the `aes()` function.
+
+Hint: use `size` to change the point size.
+
+:::::::::::::::  solution
+
+Answers may vary.
+
+Notice that the `color` argument is supplied outside of the `aes()` function. This means that it applies to all data points on the graph and is not related to a specific variable.
+
+
+``` r
+ggplot(data = mpg, mapping = aes(x = displ, y = cty)) +
+  geom_smooth() +
+  geom_point(size = 3, color = "orange")
+```
+
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
+```
+
+:::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::  
+
+
+In this episode, we used scatterplots to explore the relationship between engine size and fuel efficiency. 
+
+We learned how aesthetic mappings can reveal additional patterns in the data and how aesthetic settings can be used to modify the appearance of a plot. 
+
+Finally, we introduced layers and used `geom_smooth()` to highlight overall trends.
+
+In the next episode, we will shift our focus from relationships between variables to the distribution of individual variables using density plots.
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Scatterplots are useful for exploring relationships between variables.
+- Aesthetic mappings connect variables in the data to visual properties such as colour.
+- Aesthetic settings apply the same visual property to all observations.
+- ggplot2 plots can be built up by adding layers with `+`.
+- Different layers can have different aesthetic mappings.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
