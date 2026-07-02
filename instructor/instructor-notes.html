@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>Data Analysis and Visualization in R for Ecologists: Instructor Notes</title>
+<title>Introduction to ggplot2: Instructor Notes</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="../assets/themetoggle.js"></script><link rel="stylesheet" type="text/css" href="../assets/styles.css">
 <script src="../assets/scripts.js" type="text/javascript"></script><!-- mathjax --><!-- NOTE: https://docs.mathjax.org/en/latest/output/mathml.html#mathml-support --><!-- Changes from V2 to V4: https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
@@ -26,22 +26,31 @@
             load: ['a11y/assistive-mml', '[tex]/noerrors']
         }
     };
-    </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><!-- Responsive Favicon for The Carpentries --><link rel="apple-touch-icon" sizes="180x180" href="../favicons/dc/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicons/dc/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../favicons/dc/favicon-16x16.png">
-<link rel="manifest" href="../favicons/dc/site.webmanifest">
-<link rel="mask-icon" href="../favicons/dc/safari-pinned-tab.svg" color="#5bbad5">
+    </script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><!-- Responsive Favicon for The Carpentries --><link rel="apple-touch-icon" sizes="180x180" href="../favicons/swc/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicons/swc/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicons/swc/favicon-16x16.png">
+<link rel="manifest" href="../favicons/swc/site.webmanifest">
+<link rel="mask-icon" href="../favicons/swc/safari-pinned-tab.svg" color="#5bbad5">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="white">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="black">
 </head>
 <body>
-    <header id="top" class="navbar navbar-expand-md top-nav data"><svg xmlns="http://www.w3.org/2000/svg" class="d-none"><symbol id="check2" viewbox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path></symbol><symbol id="circle-half" viewbox="0 0 16 16"><path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path></symbol><symbol id="moon-stars-fill" viewbox="0 0 16 16"><path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path><path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path></symbol><symbol id="sun-fill" viewbox="0 0 16 16"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path></symbol></svg><a class="visually-hidden-focusable skip-link" href="#main-content">Skip to main content</a>
+    <header id="top" class="navbar navbar-expand-md top-nav software"><svg xmlns="http://www.w3.org/2000/svg" class="d-none"><symbol id="check2" viewbox="0 0 16 16"><path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path></symbol><symbol id="circle-half" viewbox="0 0 16 16"><path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path></symbol><symbol id="moon-stars-fill" viewbox="0 0 16 16"><path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path><path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path></symbol><symbol id="sun-fill" viewbox="0 0 16 16"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path></symbol></svg><a class="visually-hidden-focusable skip-link" href="#main-content">Skip to main content</a>
   <div class="container-fluid top-nav-container">
     <div class="col-md-8">
       <div class="large-logo">
-        <img id="dc-logo" alt="Data Carpentry" src="../assets/images/data-logo.svg">
-</div>
+        <img id="swc-logo" alt="Software Carpentry" src="../assets/images/software-logo.svg"><span class="badge text-bg-danger">
+          <abbr title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.">
+            <a href="https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html" class="external-link alert-link">
+              <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="border-radius: 5px"></i>
+              Pre-Alpha
+            </a>
+            <span class="visually-hidden">This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.</span>
+          </abbr>
+        </span>
+
+      </div>
     </div>
     <div class="selector-container">
       <menu class="theme-selector" id="theme-selector-menu">
@@ -81,16 +90,16 @@
 </div>
     </div>
   </div>
-  <hr></header><nav class="navbar navbar-expand-xl bottom-nav data" aria-label="Main Navigation"><div class="container-fluid nav-container">
+</header><nav class="navbar navbar-expand-xl bottom-nav software" aria-label="Main Navigation"><div class="container-fluid nav-container">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
       <span class="navbar-toggler-icon"></span>
       <span class="menu-title">Menu</span>
     </button>
     <div class="nav-logo">
-      <img class="small-logo" alt="Data Carpentry" src="../assets/images/data-logo-sm.svg">
+      <img class="small-logo" alt="Software Carpentry" src="../assets/images/software-logo-sm.svg">
 </div>
     <div class="lesson-title-md">
-      Data Analysis and Visualization in R for Ecologists
+      Introduction to ggplot2
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
@@ -101,7 +110,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item">
           <span class="lesson-title">
-            Data Analysis and Visualization in R for Ecologists
+            Introduction to ggplot2
           </span>
         </li>
         <li class="nav-item">
@@ -199,8 +208,7 @@
             </div>
 <!--/div.col -->
 
-            <hr>
-</div>
+          </div>
 <!--/div.mobile-row -->
 
           <div class="accordion accordion-flush" id="accordion-chapters-toggle">
@@ -229,7 +237,7 @@
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
-        <a href="introduction-r-rstudio.html">1. Introduction to R and RStudio</a>
+        <a href="01_ggplot2_essentials.html">1. ggplot2 essentials (20 min)</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -241,7 +249,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="visualizing-ggplot.html">2. Data visualization with ggplot2</a>
+        <a href="02_relationships.html">2. Scatterplots and Relationships</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -253,7 +261,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="how-r-thinks-about-data.html">3. Exploring and understanding data</a>
+        <a href="03_distributions.html">3. Bar Charts and Distributions</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -265,7 +273,31 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="working-with-data.html">4. Working with data</a>
+        <a href="04_groups.html">4. Comparing Groups</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush6">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading6">
+        <a href="05_composition.html">5. Composition</a>
+    </div>
+<!--/div.accordion-header-->
+
+  </div>
+<!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
+
+<div class="accordion accordion-flush" id="accordionFlush7">
+  <div class="accordion-item">
+    <div class="accordion-header" id="flush-heading7">
+        <a href="06_presentation.html">6. Communicating Results</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -608,68 +640,13 @@ an issue</a>.</p>
 <p>For a more in-depth coverage of topics of the workshops, you may want
 to read “<a href="https://r4ds.hadley.nz" class="external-link">R for Data Science (2e)</a>”
 by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.</p>
-</section><section id="aggregate-instructor-notes"><section id="introduction-r-rstudio"><h2 class="section-heading"><a href="introduction-r-rstudio.html">Introduction to R and RStudio</a></h2>
-<hr class="half-width">
-<h3 id="introduction-r-rstudio-headingInstructor1">
-<a href="introduction-r-rstudio.html#headingInstructor1">Instructor Note</a><a class="anchor" aria-label="anchor" href="#introduction-r-rstudio-headingInstructor1"></a>
-</h3>
-<p>You can walk through this analogy if you want, or skip over it if you
-don’t find it useful.</p>
-<hr>
-<br><h3 id="introduction-r-rstudio-headingInstructor2">
-<a href="introduction-r-rstudio.html#headingInstructor2">Instructor Note</a><a class="anchor" aria-label="anchor" href="#introduction-r-rstudio-headingInstructor2"></a>
-</h3>
-<p>If you are teaching remotely and sharing only the RStudio window, the
-new windows that pop up while creating folders will not be shared via
-Zoom. You can switch to sharing your entire screen, which will allow
-learners to see the popup windows.</p>
-<hr>
-<br></section><section id="visualizing-ggplot"><h2 class="section-heading"><a href="visualizing-ggplot.html">Data visualization with ggplot2</a></h2>
-<hr class="half-width">
-<h3 id="visualizing-ggplot-headingInstructor1">
-<a href="visualizing-ggplot.html#headingInstructor1">Instructor Note</a><a class="anchor" aria-label="anchor" href="#visualizing-ggplot-headingInstructor1"></a>
-</h3>
-<p>Probably worth mentioning that people often just say
-<strong>ggplot</strong> when referring to the package
-<code>ggplot2</code>.</p>
-<hr>
-<br></section><section id="how-r-thinks-about-data"><h2 class="section-heading"><a href="how-r-thinks-about-data.html">Exploring and understanding data</a></h2>
-<hr class="half-width">
-<h3 id="how-r-thinks-about-data-headingInstructor1">
-<a href="how-r-thinks-about-data.html#headingInstructor1">Choose how to teach this section</a><a class="anchor" aria-label="anchor" href="#how-r-thinks-about-data-headingInstructor1"></a>
-</h3>
-<p>The section on generative AI is intended to be concise but
-Instructors may choose to devote more time to the topic in a workshop.
-Depending on your own level of experience and comfort with talking about
-and using these tools, you could choose to do any of the following:</p>
-<ul>
-<li>Explain how large language models work and are trained, and/or the
-difference between generative AI, other forms of AI that currently
-exist, and the limits of what LLMs can do (e.g., they can’t
-“reason”).</li>
-<li>Demonstrate how you recommend that learners use generative AI.</li>
-<li>Discuss the ethical concerns listed below, as well as others that
-you are aware of, to help learners make an informed choice about whether
-or not to use generative AI tools.</li>
-</ul>
-<p>This is a fast-moving technology. If you are preparing to teach this
-section and you feel it has become outdated, please open an issue on the
-lesson repository to let the Maintainers know and/or a pull request to
-suggest updates and improvements.</p>
-<hr>
-<br></section><section id="working-with-data"><h2 class="section-heading"><a href="working-with-data.html">Working with data</a></h2>
-<hr class="half-width">
-<h3 id="working-with-data-headingInstructor1">
-<a href="working-with-data.html#headingInstructor1">Instructor Note</a><a class="anchor" aria-label="anchor" href="#working-with-data-headingInstructor1"></a>
-</h3>
-<p>It’s worth showing the learners that you can run a
-<strong>pipeline</strong> without highlighting the whole thing. If your
-cursor is on any line of a pipeline, running that line will run the
-whole thing.</p>
-<p>You can also show that by highlighting a section of a pipeline, you
-can run only the first X steps of it.</p>
-<hr>
-<br></section></section>
+</section><section id="aggregate-instructor-notes"><section id="01_ggplot2_essentials"><h2 class="section-heading"><a href="01_ggplot2_essentials.html">ggplot2 essentials (20 min)</a></h2>
+<hr class="half-width"></section><section id="02_relationships"><h2 class="section-heading"><a href="02_relationships.html">Scatterplots and Relationships</a></h2>
+<hr class="half-width"></section><section id="03_distributions"><h2 class="section-heading"><a href="03_distributions.html">Bar Charts and Distributions</a></h2>
+<hr class="half-width"></section><section id="04_groups"><h2 class="section-heading"><a href="04_groups.html">Comparing Groups</a></h2>
+<hr class="half-width"></section><section id="05_composition"><h2 class="section-heading"><a href="05_composition.html">Composition</a></h2>
+<hr class="half-width"></section><section id="06_presentation"><h2 class="section-heading"><a href="06_presentation.html">Communicating Results</a></h2>
+<hr class="half-width"></section></section>
 </div>
     </main>
 </div>
@@ -682,21 +659,21 @@ can run only the first X steps of it.</p>
         <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
 
-        <a href="https://github.com/datacarpentry/R-ecology-lesson/edit/main/README.md" class="external-link">Edit on GitHub</a>
+        <a href="https://github.com/erinmgraham/era-ggplot2/edit/main/README.md" class="external-link">Edit on GitHub</a>
 
 	
-        | <a href="https://github.com/datacarpentry/R-ecology-lesson/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
-        | <a href="https://github.com/datacarpentry/R-ecology-lesson/" class="external-link">Source</a></p>
+        | <a href="https://github.com/erinmgraham/era-ggplot2/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
+        | <a href="https://github.com/erinmgraham/era-ggplot2/" class="external-link">Source</a></p>
         <p>
-        <a href="https://github.com/datacarpentry/R-ecology-lesson/blob/main/" class="external-link">Cite</a>
-        | <a href="mailto:team@carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
+        <a href="https://github.com/erinmgraham/era-ggplot2/blob/main/" class="external-link">Cite</a>
+        | <a href="mailto:erin.graham@jcu.edu.au">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 		</div>
 		<div class="col-md-6">
 
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.20.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.1.0)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.20.2)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.1.1)</a></p>
 		</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -709,39 +686,23 @@ can run only the first X steps of it.</p>
     {
   "@context": "https://schema.org",
   "@type": "LearningResource",
-  "@id": "https://datacarpentry.org/R-ecology-lesson/instructor/instructor-notes.html",
+  "@id": "https://erinmgraham.github.io/era-ggplot2/instructor/instructor-notes.html",
   "inLanguage": "en",
   "dct:conformsTo": "https://bioschemas.org/profiles/LearningResource/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
-  "keywords": "ggplot2, tidyverse, data-visualization, data-visualisation, data-wrangling, data-carpentry, R",
+  "keywords": "ggplot2, tidyverse, data-visualization, data-visualisation, R",
   "name": "Instructor Notes",
   "creativeWorkStatus": "active",
-  "url": "https://datacarpentry.org/R-ecology-lesson/instructor/instructor-notes.html",
-  "identifier": "https://datacarpentry.org/R-ecology-lesson/instructor/instructor-notes.html",
-  "dateCreated": "2015-04-02",
-  "dateModified": "2026-05-19",
-  "datePublished": "2026-05-19"
+  "url": "https://erinmgraham.github.io/era-ggplot2/instructor/instructor-notes.html",
+  "identifier": "https://erinmgraham.github.io/era-ggplot2/instructor/instructor-notes.html",
+  "dateCreated": "2026-06-04",
+  "dateModified": "2026-07-02",
+  "datePublished": "2026-07-02"
 }
 
   </script><script>
 		feather.replace();
-	</script><!-- Matomo --><script>
-          var _paq = window._paq = window._paq || [];
-          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-          _paq.push(["setDomains", ["*.lessons.carpentries.org","*.datacarpentry.github.io","*.datacarpentry.org","*.librarycarpentry.github.io","*.librarycarpentry.org","*.swcarpentry.github.io", "*.carpentries.github.io"]]);
-          _paq.push(["setDoNotTrack", true]);
-          _paq.push(["disableCookies"]);
-          _paq.push(["trackPageView"]);
-          _paq.push(["enableLinkTracking"]);
-          (function() {
-              var u="https://matomo.carpentries.org/";
-              _paq.push(["setTrackerUrl", u+"matomo.php"]);
-              _paq.push(["setSiteId", "1"]);
-              var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
-              g.async=true; g.src="https://matomo.carpentries.org/matomo.js"; s.parentNode.insertBefore(g,s);
-          })();
-        </script><!-- End Matomo Code -->
+	</script>
 </body>
 </html><!-- END:   inst/pkgdown/templates/layout.html-->
 

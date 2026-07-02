@@ -1,123 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/404.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/01_ggplot2_essentials.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/CITATION.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/02_relationships.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/CODE_OF_CONDUCT.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/03_distributions.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/CONDUCT.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/04_groups.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/LICENSE.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/05_composition.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/NEWS.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/06_presentation.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/aio.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/404.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/how-r-thinks-about-data.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/CITATION.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/images.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/index.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/00-before-we-start.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/01-intro-to-r.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/NEWS.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/02-starting-with-data.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/aio.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/03-dplyr.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/how-r-thinks-about-data.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/04-visualization-ggplot2.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/images.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/05-r-and-databases.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/index.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/404.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/00-before-we-start.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/CITATION.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/01-intro-to-r.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/CODE_OF_CONDUCT.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/01_ggplot2_essentials.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/CONDUCT.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/02-starting-with-data.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/LICENSE.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/02_relationships.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/NEWS.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/03-dplyr.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/aio.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/03_distributions.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/how-r-thinks-about-data.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/04-visualization-ggplot2.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/images.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/04_groups.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/index.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/05-r-and-databases.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/instructor-notes.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/05_composition.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/introduction-r-rstudio.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/06_presentation.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/key-points.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/404.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/profiles.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/CITATION.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/reference.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/visualizing-ggplot.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor/working-with-data.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/instructor-notes.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/NEWS.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/introduction-r-rstudio.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/aio.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/key-points.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/how-r-thinks-about-data.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/profiles.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/images.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/reference.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/index.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/visualizing-ggplot.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/instructor-notes.html</loc>
   </url>
   <url>
-    <loc>https://datacarpentry.org/R-ecology-lesson/working-with-data.html</loc>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/introduction-r-rstudio.html</loc>
+  </url>
+  <url>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/key-points.html</loc>
+  </url>
+  <url>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/profiles.html</loc>
+  </url>
+  <url>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/reference.html</loc>
+  </url>
+  <url>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/visualizing-ggplot.html</loc>
+  </url>
+  <url>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor/working-with-data.html</loc>
+  </url>
+  <url>
+    <loc>https://erinmgraham.github.io/era-ggplot2/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://erinmgraham.github.io/era-ggplot2/introduction-r-rstudio.html</loc>
+  </url>
+  <url>
+    <loc>https://erinmgraham.github.io/era-ggplot2/key-points.html</loc>
+  </url>
+  <url>
+    <loc>https://erinmgraham.github.io/era-ggplot2/profiles.html</loc>
+  </url>
+  <url>
+    <loc>https://erinmgraham.github.io/era-ggplot2/reference.html</loc>
+  </url>
+  <url>
+    <loc>https://erinmgraham.github.io/era-ggplot2/visualizing-ggplot.html</loc>
+  </url>
+  <url>
+    <loc>https://erinmgraham.github.io/era-ggplot2/working-with-data.html</loc>
   </url>
 </urlset>
