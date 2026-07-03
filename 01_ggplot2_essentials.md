@@ -123,7 +123,7 @@ The most basic function is `ggplot()`, which lets R know that we’re creating a
 ggplot(data = mpg)
 ```
 
-<img src="fig/01_ggplot2_essentials-rendered-blank-ggplot-1.png" alt="Blank plot, before adding any mapping aesthetics to ggplot()." style="display: block; margin: auto;" />
+<img src="fig/01_ggplot2_essentials-rendered-blank-ggplot-1.png" alt="Blank plot, before adding any mapping aesthetics to ggplot." style="display: block; margin: auto;" />
 
 Here we called `ggplot()` and told it what data we want to show on our plot. This is not enough information to actually draw anything. However, it does create a blank plot that helps demonstrate how the components are put together. We're essentially providing the base layer for other elements to be added on to.
 
@@ -165,9 +165,17 @@ In the rest of this lesson, we will build on this foundation to create different
 
 Modify the example so that the plot shows how city fuel efficiency relates to engine displacement.
 
-What can we say about the relationship between city fuel efficiency and displacement?
+- What can we say about the relationship?
+- How does it compare to the relationship with highway efficiency?
+- (BONUS) How could we modify this plot to make the difference with highway more obvious?
 
 :::::::::::::::  solution
+
+- City fuel efficiency (cty) and engine displacement (displ) have a strong negative correlation.
+    - As engine displacement (size in liters) increases, city fuel economy (miles per gallon) noticeably decreases, meaning larger engines consume significantly more fuel.
+- Highway miles per gallon (hwy) are generally higher than city miles.
+    - Because of this, the hwy is higher on the y-axis and stretches across a slightly wider range.
+- We could put both sets of data on the same plot. 
 
 
 ``` r
@@ -175,6 +183,8 @@ ggplot(data = mpg,
        mapping = aes(x = displ, y = cty)) + 
   geom_point()
 ```
+
+<img src="fig/01_ggplot2_essentials-rendered-ggplot-with-aes-geom-cty-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -196,8 +206,8 @@ Saving 7 x 7 in image
 
 Notice that we did not provide any additional arguments to `ggsave()`.
 
-- If we omit the `plot` argument, `ggsave()` will automatically save the last plot you created with `ggplot`.
-- If we omit the `device` argument, ggsave() will use the file extension to determine the device.
+- If we omit the `plot` argument, it will automatically save the last plot you created with `ggplot`.
+- If we omit the `device` argument, it will use the file extension to determine the device.
 
 In this episode, we introduced the grammar of graphics and the core components of ggplot2: data, aesthetic mappings, and geometric layers. Using these components, we created our first plot with `geom_point()` and explored how variables can be mapped to visual properties such as colour. 
 
