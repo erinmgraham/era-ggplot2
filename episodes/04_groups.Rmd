@@ -21,6 +21,10 @@ source: Rmd
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 In the previous episode, we used density plots to look at the distribution of a variable.
 
 ```{r dens-hwy, eval=FALSE, fig.alt="Density plot of highway fuel efficiency."}

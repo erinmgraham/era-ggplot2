@@ -22,6 +22,10 @@ source: Rmd
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 So far we've focused on creating plots to answer different questions:
 
 - Relationships

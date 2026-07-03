@@ -21,6 +21,10 @@ source: Rmd
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
 In the previous episode, we used boxplots to summarise distributions and compare groups.
 
 Now we’ll look at a different question. _How is our data made up?_
