@@ -30,7 +30,7 @@ Let's take a closer look at the relationship between engine size (`displ`) and c
 
 Recall our displacement vs highway fuel efficiency plot.
 
-```{r ggplot-with-aes-geom-cty, eval=FALSE, fig.alt="Scatter plot of  displacement vs city fuel efficiency with data points."}
+```{r ggplot-with-aes-geom-cty, fig.alt="Scatter plot of  displacement vs city fuel efficiency with data points."}
 ggplot(data = mpg, 
        mapping = aes(x = displ, y = cty)) + 
   geom_point()
@@ -43,7 +43,7 @@ So far, we have mapped variables to the x- and y-axes. We can also control other
 
 For example, we can **map** a colour to each `class` of vehicle.
 
-```{r aes_map_colour, eval=FALSE, fig.alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class."}
+```{r aes_map_colour, fig.alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class."}
 ggplot(data = mpg, mapping = aes(x = displ, y = cty,
                                  colour = class)) + 
   geom_point()
@@ -68,7 +68,7 @@ In the above example we used a variable to control the colouring of the datapoin
 
 Lets modify the transparency of the points, using the `alpha` argument, which is especially helpful when you have a large amount of data which is very clustered.
 
-```{r aes_set_alpha, eval=FALSE, fig.alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible."}
+```{r aes_set_alpha, fig.alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible."}
 ggplot(data = mpg, mapping = aes(x = displ, y = cty,
                                  colour = class)) + 
   geom_point(alpha = 0.3)
@@ -76,7 +76,7 @@ ggplot(data = mpg, mapping = aes(x = displ, y = cty,
 
 Finally, we both map and set aethestics for a **geom**. In this example, we will move the colour by class aesthetic to the specific geom_point(). This plot should look like the one above, we've only moved the coloring to the layer in order to make more complex visualisations.
 
-```{r aes_set_map, eval=FALSE, fig.alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible."}
+```{r aes_set_map, fig.alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible."}
 ggplot(data = mpg, mapping = aes(x = displ, y = cty)) + 
   geom_point(aes(colour = class), alpha = 0.3)
 ```
@@ -91,7 +91,7 @@ Layers in `ggplot2` are building blocks stacked on top of each other to create m
 
 Let's add  `geom_smooth()` layer to the plot. Recall we use the `+` symbol to stack the layers:
   
-```{r hwy-point, eval=FALSE, fig.alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible. It includes a blue trendline with shaded confidence interval."}
+```{r hwy-point, fig.alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible. It includes a blue trendline with shaded confidence interval."}
 ggplot(data = mpg, mapping = aes(x = displ, y = cty)) + 
   geom_point(aes(colour = class), alpha = 0.3) +
   geom_smooth()
@@ -114,7 +114,7 @@ To demonstrate, rearrange the drawing order:
   
 The points now get drawn over the line! If we look closely the smooth line was drawn first, followed by the points.
 
-```{r ch_order, eval=FALSE, fig.alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible. It includes a blue trendline with error bars."}
+```{r ch_order, fig.alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible. It includes a blue trendline with error bars."}
 ggplot(data = mpg, mapping = aes(x = displ, y = cty)) + 
   geom_smooth() +
   geom_point(aes(colour = class), alpha = 0.3)
