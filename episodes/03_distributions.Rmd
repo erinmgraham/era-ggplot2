@@ -50,7 +50,8 @@ We’ll start by looking at highway fuel efficiency (`hwy`) in the mpg dataset.
 
 
 ```{r dens-hwy, fig.alt="Density plot of highway fuel efficiency."}
-ggplot(data = mpg, mapping = aes(x = hwy)) +
+ggplot(data = mpg, 
+       mapping = aes(x = hwy)) +
   geom_density()
 ```
 
@@ -104,7 +105,8 @@ Answers may vary.
 City fuel efficiency has a single cluster of vehicles at around 15-17 mpg with  wide width and shorter tail.
 
 ```{r dens-cty, fig.alt="Density plot of city fuel efficiency."}
-ggplot(data = mpg, mapping = aes(x = cty)) +
+ggplot(data = mpg, 
+       mapping = aes(x = cty)) +
   geom_density()
 ```
 
@@ -119,7 +121,8 @@ Just like in the relationships episode, we can use **aesthetics** to reveal more
 Here, we’ll compare fuel efficiency across vehicle `class`:
 
 ```{r dens-hwy-class, fig.alt="Density plot of highway fuel efficiency filled with colour for each class."}
-ggplot(data = mpg, mapping = aes(x = hwy, fill = class)) +
+ggplot(data = mpg, 
+       mapping = aes(x = hwy, fill = class)) +
   geom_density()
 ```
 
@@ -167,7 +170,8 @@ Create a density plot of city fuel efficiency (`cty`) for different classes of v
 Answer may vary.
 
 ```{r dens-cty-class, fig.alt="Density plot of city fuel efficiency filled with colour for each class."}
-ggplot(data = mpg, mapping = aes(x = cty, fill = class)) +
+ggplot(data = mpg, 
+       mapping = aes(x = cty, fill = class)) +
   geom_density()
 ```
 
@@ -190,7 +194,8 @@ Density plots are useful because they:
 A **histogram** shows the same idea differently:
 
 ```{r hwy-hist, fig.alt="Density plot of highway fuel efficiency with data points."}
-ggplot(data = mpg, mapping = aes(x = hwy)) +
+ggplot(data = mpg, 
+       mapping = aes(x = hwy)) +
   geom_histogram()
 ```
 
@@ -221,7 +226,8 @@ What problems do you notice compared to density plots?
 Most learners will move the `fill` argument directly from the ggplot layer to the `geom_histogram()` layer. This will break unless you use the `aes()` function to map each class.
 
 ```{r dens-cty-class-fill, fig.alt="Density plot of city fuel efficiency filled with colour for each class."}
-ggplot(data = mpg, mapping = aes(x = cty)) +
+ggplot(data = mpg, 
+       mapping = aes(x = cty)) +
   geom_histogram(aes(fill = class))
 ```
 

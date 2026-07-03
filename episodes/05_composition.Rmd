@@ -40,7 +40,8 @@ Instead of shape or summary, we’re interested in composition — how observati
 To start, let’s count how many observations fall into each vehicle `class`. As we learned with mapping, we map the group to the x-axis:
 
 ```{r bar-hwy, fig.alt="Bar plot showing the number of mpg observations for each class of vehicle ."}
-ggplot(data = mpg, mapping = aes(x = class)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class)) +
   geom_bar()
 ```
 
@@ -71,7 +72,8 @@ Notice that the y-axis shows counts. The taller the bar, the more observations b
 We can break this down further using `fill`, just like before. What if we wanted to know about the drive type (front-wheel, rear-wheel, 4-wheel) for the vehicles in each `class`. We use the `drv` variable. 
 
 ```{r bar-hwy-drv, fig.alt="Bar plot showing the number of mpg observations for each class of vehicle ."}
-ggplot(data = mpg, mapping = aes(x = class, fill = drv)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class, fill = drv)) +
   geom_bar()
 ```
 
@@ -107,7 +109,8 @@ To show proportions instead of counts , add `position = "fill"` as an argument t
 
 
 ```{r bar-hwy-prop, fig.alt="Bar plot showing the proportion of mpg observations for each class of vehicle and drive type."}
-ggplot(data = mpg, mapping = aes(x = class, fill = drv)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class, fill = drv)) +
   geom_bar(position = "fill")
 ```
 

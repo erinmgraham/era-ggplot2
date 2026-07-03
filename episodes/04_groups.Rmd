@@ -32,7 +32,8 @@ library(ggplot2)
 In the previous episode, we used density plots to look at the distribution of a variable.
 
 ```{r dens-hwy, fig.alt="Density plot of highway fuel efficiency."}
-ggplot(data = mpg, mapping = aes(x = hwy)) +
+ggplot(data = mpg, 
+       mapping = aes(x = hwy)) +
   geom_density()
 ```
 
@@ -45,7 +46,8 @@ A boxplot is a visual summary of numerical data that displays its distribution, 
 We replace `geom_density()` with `geom_boxplot()` in our plot.
 
 ```{r box-hwy, fig.alt="Box plot of highway fuel efficiency."}
-ggplot(data = mpg, mapping = aes(x = hwy)) +
+ggplot(data = mpg, 
+       mapping = aes(x = hwy)) +
   geom_boxplot()
 ```
 
@@ -104,7 +106,8 @@ To get a boxplot for each `class`, we’re actually making two different changes
 - `hwy` → y (numeric variable)
 
 ```{r box-hwy-class, fig.alt="Box plot of highway fuel efficiency."}
-ggplot(data = mpg, mapping = aes(x=class, y = hwy)) +
+ggplot(data = mpg, 
+       mapping = aes(x=class, y = hwy)) +
   geom_boxplot()
 ```
 
@@ -144,7 +147,8 @@ Reuse what we already know and use `fill` to colour each class to help visually 
 :::::::::::::::  solution
 
 ```{r box-hwy-class-colour, fig.alt="Box plot of highway fuel efficiency."}
-ggplot(data = mpg, mapping = aes(x=class, y = hwy, fill = class)) +
+ggplot(data = mpg, 
+       mapping = aes(x=class, y = hwy, fill = class)) +
   geom_boxplot()
 ```
 

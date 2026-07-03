@@ -46,7 +46,8 @@ Even when a plot contains useful information, it may be difficult to read or int
 Let's start with a plot we've seen before:
 
 ```{r bar-class, fig.alt="Bar plot of highway fuel efficiency for each class of vehicle."}
-ggplot(data = mpg, mapping = aes(x = class)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class)) +
   geom_bar()
 ```
 
@@ -55,7 +56,8 @@ The plot communicates the data, but the labels come directly from the dataset.
 We can make the plot more informative using `labs()`:
 
 ```{r bar-class-labs, fig.alt="Bar plot of highway fuel efficiency for each class of vehicle."}
-ggplot(data = mpg, mapping = aes(x = class)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class)) +
   geom_bar() +
   labs(
     x = "Vehicle class",
@@ -79,14 +81,16 @@ Sometimes a single plot contains too much information.
 In our composition episode, we examined vehicle classes and drive type:
 
 ```{r bar-hwy-comp, fig.alt="Bar plot showing the number of mpg observations for each class of vehicle ."}
-ggplot(data = mpg, mapping = aes(x = class, fill = drv)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class, fill = drv)) +
   geom_bar()
 ```
 
 Instead of showing everything in one panel, we can create a separate panel for each drive type:
 
 ```{r bar-hwy-facet, fig.alt="Bar plot showing the number of mpg observations for each class of vehicle. Each drive type has its own panel."}
-ggplot(data = mpg, mapping = aes(x = class)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class)) +
   geom_bar() +
   facet_wrap(~ drv)
 ```
@@ -130,7 +134,8 @@ Consider the facet plot we just created. Notice that the x-axis labels are becom
 We can rotate axis text to make it easier to read:
 
 ```{r bar-hwy-facet-lab, fig.alt="Bar plot showing the number of mpg observations for each class of vehicle. Each drive type has its own panel. Labels are rotated 45 degrees to improve readability."}
-ggplot(data = mpg, mapping = aes(x = class)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class)) +
   geom_bar() +
   facet_wrap(~ drv) +
   theme(axis.text.x = element_text(angle = 45))
@@ -156,7 +161,8 @@ Improve it by:
 Answers may vary.
 
 ```{r bar-hwy-facet-ch, fig.alt="Bar plot showing the number of mpg observations for each class of vehicle. Each drive type has its own panel."}
-ggplot(data = mpg, aes(x = class, fill = drv)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class, fill = drv)) +
   geom_bar(position = "fill") +
   labs(
     title = "Drive type composition by vehicle class",
