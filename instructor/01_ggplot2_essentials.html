@@ -477,7 +477,7 @@ represent fuel efficiency?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul><li>numeric: displ, year, cyl, cty, hwy</li>
 <li>categorical: manufacturer, model, trans, drv, fl, class</li>
@@ -503,7 +503,7 @@ plot - they apply to all layers on the plot.</p>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/01_ggplot2_essentials-rendered-blank-ggplot-1.png" alt="Blank plot, before adding any mapping aesthetics to ggplot()." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Here we called <code>ggplot()</code> and told it what data we want to
+<figure><img src="../fig/01_ggplot2_essentials-rendered-blank-ggplot-1.png" alt="Blank plot, before adding any mapping aesthetics to ggplot." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Here we called <code>ggplot()</code> and told it what data we want to
 show on our plot. This is not enough information to actually draw
 anything. However, it does create a blank plot that helps demonstrate
 how the components are put together. We’re essentially providing the
@@ -560,9 +560,12 @@ for different questions.</p>
 <div class="callout-content">
 <p>Modify the example so that the plot shows how city fuel efficiency
 relates to engine displacement.</p>
-<p>What can we say about the relationship between city fuel efficiency
-and displacement?</p>
-</div>
+<ul><li>What can we say about the relationship?</li>
+<li>How does it compare to the relationship with highway
+efficiency?</li>
+<li>(BONUS) How could we modify this plot to make the difference with
+highway more obvious?</li>
+</ul></div>
 </div>
 </div>
 <div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
@@ -570,9 +573,20 @@ and displacement?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb7">
+<ul><li>City fuel efficiency (cty) and engine displacement (displ) have a
+strong negative correlation.
+<ul><li>As engine displacement (size in liters) increases, city fuel economy
+(miles per gallon) noticeably decreases, meaning larger engines consume
+significantly more fuel.</li>
+</ul></li>
+<li>Highway miles per gallon (hwy) are generally higher than city miles.
+<ul><li>Because of this, the hwy is higher on the y-axis and stretches
+across a slightly wider range.</li>
+</ul></li>
+<li>We could put both sets of data on the same plot.</li>
+</ul><div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -580,7 +594,7 @@ and displacement?</p>
 <span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">cty</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-</div>
+<figure><img src="../fig/01_ggplot2_essentials-rendered-ggplot-with-aes-geom-cty-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
 </div>
 </div>
 </div>
@@ -600,11 +614,10 @@ with <code>ggplot2</code> quickly and easily with just a filename:</p>
 </div>
 <p>Notice that we did not provide any additional arguments to
 <code>ggsave()</code>.</p>
-<ul><li>If we omit the <code>plot</code> argument, <code>ggsave()</code>
-will automatically save the last plot you created with
-<code>ggplot</code>.</li>
-<li>If we omit the <code>device</code> argument, ggsave() will use the
-file extension to determine the device.</li>
+<ul><li>If we omit the <code>plot</code> argument, it will automatically
+save the last plot you created with <code>ggplot</code>.</li>
+<li>If we omit the <code>device</code> argument, it will use the file
+extension to determine the device.</li>
 </ul><p>In this episode, we introduced the grammar of graphics and the core
 components of ggplot2: data, aesthetic mappings, and geometric layers.
 Using these components, we created our first plot with
