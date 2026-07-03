@@ -360,6 +360,12 @@
 </div>
 </div>
 </div>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">library</span><span class="op">(</span><span class="va">ggplot2</span><span class="op">)</span></span></code></pre>
+</div>
 <p>In the previous episode, we used boxplots to summarise distributions
 and compare groups.</p>
 <p>Now we’ll look at a different question. <em>How is our data made
@@ -370,20 +376,14 @@ observations are divided into categories.</p>
 <hr class="half-width"><p>To start, let’s count how many observations fall into each vehicle
 <code>class</code>. As we learned with mapping, we map the group to the
 x-axis:</p>
-<div class="codewrapper sourceCode" id="cb1">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in `ggplot()`:
-! could not find function "ggplot"</code></pre>
-</div>
-<p>In this plot, <code>class</code> is a categorical variable and
+<figure><img src="../fig/05_composition-rendered-bar-hwy-1.png" alt="Bar plot showing the number of mpg observations for each class of vehicle ." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>In this plot, <code>class</code> is a categorical variable and
 <code>geom_bar()</code> counts the number of observations in each
 category. The height of each bar shows how many there are.</p>
 <p>Notice that the y-axis shows counts. The taller the bar, the more
@@ -426,13 +426,7 @@ the <code>drv</code> variable.</p>
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span>, fill <span class="op">=</span> <span class="va">drv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in `ggplot()`:
-! could not find function "ggplot"</code></pre>
-</div>
-<p>Bars are now split into segments where each segment represents a
+<figure><img src="../fig/05_composition-rendered-bar-hwy-drv-1.png" alt="Bar plot showing the number of mpg observations for each class of vehicle ." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Bars are now split into segments where each segment represents a
 level of <code>drv</code> or drive type.</p>
 <p>The total height is still the count for each class so now we see
 composition within groups.</p>
@@ -471,20 +465,14 @@ relative to the whole.</p>
 <p>To show proportions instead of counts , add
 <code>position = "fill"</code> as an argument to
 <code>geom_bar()</code>:</p>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span>, fill <span class="op">=</span> <span class="va">drv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_bar</span><span class="op">(</span>position <span class="op">=</span> <span class="st">"fill"</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in `ggplot()`:
-! could not find function "ggplot"</code></pre>
-</div>
-<p>At first glance, this plot looks similar to the previous one.
+<figure><img src="../fig/05_composition-rendered-bar-hwy-prop-1.png" alt="Bar plot showing the proportion of mpg observations for each class of vehicle and drive type." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>At first glance, this plot looks similar to the previous one.
 However, notice that all bars now have the same height.</p>
 <p>The y-axis has changed from counts to proportions.</p>
 <p>Instead of showing how many vehicles belong to each class, the bars

@@ -358,6 +358,12 @@ data?</li>
 </div>
 </div>
 </div>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">library</span><span class="op">(</span><span class="va">ggplot2</span><span class="op">)</span></span></code></pre>
+</div>
 <p>We’ve seen how plots can be created quickly using the key components
 of a <code>ggplot</code> and we know that scatter plots can be used to
 explore relationships between variables in our dataset.</p>
@@ -365,8 +371,8 @@ explore relationships between variables in our dataset.</p>
 (<code>displ</code>) and city fuel efficiency (<code>cty</code>). We
 will also explore how additional aesthetic mappings and layers can help
 reveal patterns in the data.</p>
-<p>Recall our displacement vs highway fuel efficiency plot.</p>
-<div class="codewrapper sourceCode" id="cb1">
+<p>Recall our displacement vs city fuel efficiency plot.</p>
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -374,13 +380,7 @@ reveal patterns in the data.</p>
 <span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">cty</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in `ggplot()`:
-! could not find function "ggplot"</code></pre>
-</div>
-<section><h2 class="section-heading" id="mapping-and-setting-aesthetics">Mapping and Setting Aesthetics<a class="anchor" aria-label="anchor" href="#mapping-and-setting-aesthetics"></a></h2>
+<figure><img src="fig/02_relationships-rendered-ggplot-with-aes-geom-cty-1.png" alt="Scatter plot of  displacement vs city fuel efficiency with data points." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><section><h2 class="section-heading" id="mapping-and-setting-aesthetics">Mapping and Setting Aesthetics<a class="anchor" aria-label="anchor" href="#mapping-and-setting-aesthetics"></a></h2>
 <hr class="half-width"><p>So far, we have mapped variables to the x- and y-axes. We can also
 control other visual properties, such as colour, size, and shape in two
 ways. We can <strong>map</strong> them to variables in our data, or
@@ -396,13 +396,7 @@ observations.</p>
 <span>                                 colour <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in `ggplot()`:
-! could not find function "ggplot"</code></pre>
-</div>
-<div id="aesthetics---colour-trends" class="callout challenge">
+<figure><img src="fig/02_relationships-rendered-aes_map_colour-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="aesthetics---colour-trends" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -432,7 +426,7 @@ the datapoints. We can also <strong>set</strong> a fixed value.</p>
 <p>Lets modify the transparency of the points, using the
 <code>alpha</code> argument, which is especially helpful when you have a
 large amount of data which is very clustered.</p>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -440,31 +434,19 @@ large amount of data which is very clustered.</p>
 <span>                                 colour <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in `ggplot()`:
-! could not find function "ggplot"</code></pre>
-</div>
-<p>Finally, we both map and set aethestics for a <strong>geom</strong>.
+<figure><img src="fig/02_relationships-rendered-aes_set_alpha-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Finally, we both map and set aethestics for a <strong>geom</strong>.
 In this example, we will move the colour by class aesthetic to the
 specific geom_point(). This plot should look like the one above, we’ve
 only moved the coloring to the layer in order to make more complex
 visualisations.</p>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">cty</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>colour <span class="op">=</span> <span class="va">class</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in `ggplot()`:
-! could not find function "ggplot"</code></pre>
-</div>
-<p>Here the colour mapping only applies to the points because it was
+<figure><img src="fig/02_relationships-rendered-aes_set_map-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Here the colour mapping only applies to the points because it was
 specified within <code>geom_point()</code>. This allows different layers
 to use different aesthetic mappings.</p>
 <p>Changing the way a dataset is displayed visually is useful for
@@ -476,7 +458,7 @@ relationships in the data.</p>
 each other to create more and more complex plots.</p>
 <p>Let’s add <code>geom_smooth()</code> layer to the plot. Recall we use
 the <code>+</code> symbol to stack the layers:</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -485,12 +467,11 @@ the <code>+</code> symbol to stack the layers:</p>
 <span>  <span class="fu">geom_smooth</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in `ggplot()`:
-! could not find function "ggplot"</code></pre>
+<pre class="output" tabindex="0"><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
 </div>
-<p>The <code>geom_smooth()</code> layer adds a trend line to the plot,
+<figure><img src="fig/02_relationships-rendered-cty-point-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible. It includes a blue trendline with shaded confidence interval." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The <code>geom_smooth()</code> layer adds a trend line to the plot,
 making the overall relationship between engine size and fuel efficiency
 easier to see. In this case, it highlights that fuel efficiency tends to
 decrease as engine size increases.</p>
@@ -521,7 +502,7 @@ example. What happened?</p>
 <p>To demonstrate, rearrange the drawing order:</p>
 <p>The points now get drawn over the line! If we look closely the smooth
 line was drawn first, followed by the points.</p>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -530,12 +511,11 @@ line was drawn first, followed by the points.</p>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>colour <span class="op">=</span> <span class="va">class</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in `ggplot()`:
-! could not find function "ggplot"</code></pre>
+<pre class="output" tabindex="0"><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
 </div>
-</div>
+<figure><img src="fig/02_relationships-rendered-ch_order-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible. It includes a blue trendline with error bars." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
 </div>
 </div>
 </div>
@@ -587,7 +567,7 @@ previous example.</p>
 <p>Notice that the <code>color</code> argument is supplied outside of
 the <code>aes()</code> function. This means that it applies to all data
 points on the graph and is not related to a specific variable.</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -596,12 +576,11 @@ points on the graph and is not related to a specific variable.</p>
 <span>  <span class="fu">geom_point</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">3</span>, color <span class="op">=</span> <span class="st">"orange"</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in `ggplot()`:
-! could not find function "ggplot"</code></pre>
+<pre class="output" tabindex="0"><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
 </div>
-</div>
+<figure><img src="fig/02_relationships-rendered-ch-set-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
 </div>
 </div>
 </div>
