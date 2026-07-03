@@ -39,26 +39,31 @@ In this lesson we will use the `mpg` dataset, which is included with the `ggplot
 
 Because `mpg` is built into `ggplot2`, we can use it directly without needing to load an external file.
 
-```r
-library(ggplot2)
-str(mpg)
-```
-```output
-tibble [234 × 11] (S3: tbl_df/tbl/data.frame)
- $ manufacturer: chr [1:234] "audi" "audi" "audi" "audi" ...
- $ model       : chr [1:234] "a4" "a4" "a4" "a4" ...
- $ displ       : num [1:234] 1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...
- $ year        : int [1:234] 1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 ...
- $ cyl         : int [1:234] 4 4 4 4 6 6 6 4 4 4 ...
- $ trans       : chr [1:234] "auto(l5)" "manual(m5)" "manual(m6)" "auto(av)" ...
- $ drv         : chr [1:234] "f" "f" "f" "f" ...
- $ cty         : int [1:234] 18 21 20 21 16 18 18 18 16 20 ...
- $ hwy         : int [1:234] 29 29 31 30 26 26 27 26 25 28 ...
- $ fl          : chr [1:234] "p" "p" "p" "p" ...
- $ class       : chr [1:234] "compact" "compact" "compact" "compact" ...
+### Setup
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
-### Data Dictionary
+We are going to be using **functions** from the **`ggplot2`** package to create visualizations of data. Functions are predefined bits of code that automate more complicated actions. R itself has many built-in functions, but we can access many more by loading other **packages** of functions and data into R.
+
+If you don't have a blank, untitled script open yet, go ahead and open one with <kbd>Shift+Cmd+N</kbd> (Mac) or <kbd>Shift+Ctrl+N</kbd> (Windows). Then save the file to your `scripts/` folder, and title it `workshop_code.R`.
+
+Earlier, you had to **install** the `ggplot2` package by running `install.packages("tidyverse")`. That installed the package onto your computer so that R can access it. In order to use it in our current session, we have to **load** the package using the `library()` function.
+
+```{r load-ggplot2, message=FALSE}
+library(ggplot2)
+```
+
+We will use the `mpg` dataset that is prepackaged with `ggplot`.
+
+In R, the `str()` function provides a summary of the dataset's internal structure. It tells you the total number of observations (rows) and variables (columns), the data type of each column (e.g., numeric, character, or factor), and displays the first few values of each variable.
+
+```{r mpg-str}
+str(mpg)
+```
+
+### Data dictionary
 
 The main variables we will use in this lesson are:
 
@@ -67,8 +72,6 @@ The main variables we will use in this lesson are:
 - cty: city fuel efficiency (miles per gallon)
 - class: type of car (e.g. SUV, compact)
 - drv: drive type (front-wheel, rear-wheel, 4-wheel)
-
-Using this information, which variables might you choose to explore a relationship between engine size and fuel efficiency?
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -94,7 +97,11 @@ Take a minute to explore the dataset:
 :::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::
 
-Let’s start off building an example using the `mgp` data. The most basic function is `ggplot()`, which lets R know that we’re creating a new plot. Any of the arguments we give the `ggplot()` function are the _global_ options for the plot - they apply to all layers on the plot.
+## Plotting with `ggplot2`
+
+Let’s start off building an example using the `mgp` data. 
+
+The most basic function is `ggplot()`, which lets R know that we’re creating a new plot. Any of the arguments we give the `ggplot()` function are the _global_ options for the plot - they apply to all layers on the plot.
 
 ```{r blank-ggplot, message=FALSE, fig.alt="Blank plot, before adding any mapping aesthetics to ggplot()."}
 ggplot(data = mpg)
