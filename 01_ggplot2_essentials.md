@@ -39,11 +39,31 @@ In this lesson we will use the `mpg` dataset, which is included with the `ggplot
 
 Because `mpg` is built into `ggplot2`, we can use it directly without needing to load an external file.
 
-```r
+### Setup
+
+
+
+We are going to be using **functions** from the **`ggplot2`** package to create visualizations of data. Functions are predefined bits of code that automate more complicated actions. R itself has many built-in functions, but we can access many more by loading other **packages** of functions and data into R.
+
+If you don't have a blank, untitled script open yet, go ahead and open one with <kbd>Shift+Cmd+N</kbd> (Mac) or <kbd>Shift+Ctrl+N</kbd> (Windows). Then save the file to your `scripts/` folder, and title it `workshop_code.R`.
+
+Earlier, you had to **install** the `ggplot2` package by running `install.packages("tidyverse")`. That installed the package onto your computer so that R can access it. In order to use it in our current session, we have to **load** the package using the `library()` function.
+
+
+``` r
 library(ggplot2)
+```
+
+We will use the `mpg` dataset that is prepackaged with `ggplot`.
+
+In R, the `str()` function provides a summary of the dataset's internal structure. It tells you the total number of observations (rows) and variables (columns), the data type of each column (e.g., numeric, character, or factor), and displays the first few values of each variable.
+
+
+``` r
 str(mpg)
 ```
-```output
+
+``` output
 tibble [234 × 11] (S3: tbl_df/tbl/data.frame)
  $ manufacturer: chr [1:234] "audi" "audi" "audi" "audi" ...
  $ model       : chr [1:234] "a4" "a4" "a4" "a4" ...
@@ -58,7 +78,7 @@ tibble [234 × 11] (S3: tbl_df/tbl/data.frame)
  $ class       : chr [1:234] "compact" "compact" "compact" "compact" ...
 ```
 
-### Data Dictionary
+### Data dictionary
 
 The main variables we will use in this lesson are:
 
@@ -67,8 +87,6 @@ The main variables we will use in this lesson are:
 - cty: city fuel efficiency (miles per gallon)
 - class: type of car (e.g. SUV, compact)
 - drv: drive type (front-wheel, rear-wheel, 4-wheel)
-
-Using this information, which variables might you choose to explore a relationship between engine size and fuel efficiency?
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -94,17 +112,18 @@ Take a minute to explore the dataset:
 :::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::
 
-Let’s start off building an example using the `mgp` data. The most basic function is `ggplot()`, which lets R know that we’re creating a new plot. Any of the arguments we give the `ggplot()` function are the _global_ options for the plot - they apply to all layers on the plot.
+## Plotting with `ggplot2`
+
+Let’s start off building an example using the `mgp` data. 
+
+The most basic function is `ggplot()`, which lets R know that we’re creating a new plot. Any of the arguments we give the `ggplot()` function are the _global_ options for the plot - they apply to all layers on the plot.
 
 
 ``` r
 ggplot(data = mpg)
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/01_ggplot2_essentials-rendered-blank-ggplot-1.png" alt="Blank plot, before adding any mapping aesthetics to ggplot()." style="display: block; margin: auto;" />
 
 Here we called `ggplot()` and told it what data we want to show on our plot. This is not enough information to actually draw anything. However, it does create a blank plot that helps demonstrate how the components are put together. We're essentially providing the base layer for other elements to be added on to.
 
@@ -116,10 +135,7 @@ ggplot(data = mpg,
        mapping = aes(x = displ, y = hwy))
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/01_ggplot2_essentials-rendered-ggplot-with-aes-1.png" alt="Plotting area with axes for a scatter plot of displacement and hwy fuel efficiency but no data points visible." style="display: block; margin: auto;" />
 
 Here we told `ggplot()` we want to plot the "displ" column of the data frame on the x-axis, and the "hwy" column on the y-axis. Notice that we didn't need to explicitly pass `aes` these columns (e.g. `x = mpg[, "disp"]`). This is because
 `ggplot()` is designed to look in the **data** for that column!
@@ -135,10 +151,7 @@ ggplot(data = mpg,
   geom_point()
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/01_ggplot2_essentials-rendered-ggplot-with-aes-geom-1.png" alt="Scatter plot of displacement vs hwy fuel efficiency with data points." style="display: block; margin: auto;" />
 
 There we have it! A scatter plot of points that represents the relationship between **x** ('displacement') and **y** ('highway fuel efficiency') in our dataset. 
 
@@ -177,9 +190,8 @@ The `ggsave()` function allows you to save a plot created with `ggplot2` quickly
 ggsave(filename = "fig/my_ggplot.png")
 ```
 
-``` error
-Error in `ggsave()`:
-! could not find function "ggsave"
+``` output
+Saving 7 x 7 in image
 ```
 
 Notice that we did not provide any additional arguments to `ggsave()`.
