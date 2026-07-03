@@ -26,6 +26,10 @@ source: Rmd
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r load-ggplot2, message=FALSE}
+library(ggplot2)
+```
+
 So far we've focused on creating plots to answer different questions:
 
 - Relationships
