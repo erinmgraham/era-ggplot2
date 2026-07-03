@@ -67,11 +67,12 @@ contact: 'erin.graham@jcu.edu.au'
 
 # Order of episodes in your lesson
 episodes:
-- 01-intro-to-shiny.Rmd
-- 02-shiny-ui.Rmd
-- 03-input-output.Rmd
-- 04-reactives.Rmd
-- 05-publishing-shiny-app.Rmd
+- 01_ggplot2_essentials.Rmd
+- 02_relationships.Rmd
+- 03_distributions.Rmd
+- 04_groups.Rmd
+- 05_composition.Rmd
+- 06_presentation.Rmd
 
 # Information for Learners
 learners: 
