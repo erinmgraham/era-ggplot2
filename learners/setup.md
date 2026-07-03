@@ -14,9 +14,12 @@ This lesson assumes you have R and RStudio installed on your computer.
 
 For this lesson we will use the package `tidyverse`. 
 
+The `tidyverse` is a beginner-friendly collection of R packages designed specifically for data science that share a unified design philosophy, grammar, and data structure. It simplifies data importing, cleaning, and manipulation, making R much more intuitive to learn and read.
+
 ```r
 install.packages("tidyverse")
 ```
+`ggplot2` is the premier data visualization package within the tidyverse, meaning it automatically loads when you call `library(tidyverse)` and seamlessly integrates with all other tools in the collection.
 
 Check the package installed correctly by loading the `ggplot2` library.
 
