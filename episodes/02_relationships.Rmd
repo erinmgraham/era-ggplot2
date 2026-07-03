@@ -43,7 +43,11 @@ ggplot(data = mpg,
 
 ## Mapping and Setting Aesthetics
 
-So far, we have mapped variables to the x- and y-axes. We can also control other visual properties, such as colour, size, and shape in two ways. We can **map** them to variables in our data, or **set** them to a fixed value that is applied to all observations. 
+So far, we have mapped variables to the x- and y-axes. 
+
+We can also control other visual properties, such as colour, size, and shape in two ways. 
+
+We can **map** them to variables in our data, or **set** them to a fixed value that is applied to all observations. 
 
 For example, we can **map** a colour to each `class` of vehicle.
 
@@ -69,7 +73,9 @@ Answers may vary.
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-In the above example we used a variable to control the colouring of the datapoints. We can also **set** a fixed value.
+In the above example we used a variable to control the colouring of the datapoints. 
+
+We can also **set** a fixed value.
 
 Lets modify the transparency of the points, using the `alpha` argument, which is especially helpful when you have a large amount of data which is very clustered.
 
@@ -80,7 +86,13 @@ ggplot(data = mpg,
   geom_point(alpha = 0.3)
 ```
 
-Finally, we both map and set aethestics for a **geom**. In this example, we will move the colour by class aesthetic to the specific geom_point(). This plot should look like the one above, we've only moved the coloring to the layer in order to make more complex visualisations.
+Notice how the points are now more transparent now than the previous figure. 
+
+Finally, we can _map variables_ **and** _set values_ for aethestics for a **geom**. 
+
+In this example, we will move the `colour` by `class` aesthetic to the specific `geom_point()`. 
+
+This plot should look like the one above, we've only moved the coloring to the layer in order to make more complex visualisations.
 
 ```{r aes_set_map, fig.alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible."}
 ggplot(data = mpg, 
@@ -88,15 +100,19 @@ ggplot(data = mpg,
   geom_point(aes(colour = class), alpha = 0.3)
 ```
 
-Here the colour mapping only applies to the points because it was specified within `geom_point()`. This allows different layers to use different aesthetic mappings.
+Here the colour mapping only applies to the points because it was specified within `geom_point()`. 
 
-Changing the way a dataset is displayed visually is useful for distinguishing patterns and extracting information. Taking it one step further, we can add more **geoms** to our plot to highlight relationships in the data.
+This allows different layers to use different aesthetic mappings.
+
+Changing the way a dataset is displayed visually is useful for distinguishing patterns and extracting information. 
+
+Taking it one step further, we can add more **geoms** to our plot to highlight relationships in the data.
 
 ## Layers
 
 Layers in `ggplot2` are building blocks stacked on top of each other to create more and more complex plots.
 
-Let's add  `geom_smooth()` layer to the plot. Recall we use the `+` symbol to stack the layers:
+Let's add a `geom_smooth()` layer to the plot. Recall we use the `+` symbol to stack the layers:
   
 ```{r cty-point, fig.alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible. It includes a blue trendline with shaded confidence interval."}
 ggplot(data = mpg, 
@@ -115,12 +131,15 @@ What if we wanted to see the points on top of the lines?
 
 ## Layer Order Matters
 
-Switch the order of the point and smooth layers from the previous example. What happened?
+Switch the order of the point and smooth layers from the previous example. 
+- What happened?
 
 :::::::::::::::  solution
-To demonstrate, rearrange the drawing order:
+To demonstrate, rearrange the drawing order. 
   
-The points now get drawn over the line! If we look closely the smooth line was drawn first, followed by the points.
+The points now get drawn over the line! 
+
+If we look closely the smooth line was drawn first, followed by the points.
 
 ```{r ch_order, fig.alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible. It includes a blue trendline with error bars."}
 ggplot(data = mpg, 
@@ -138,7 +157,7 @@ ggplot(data = mpg,
 
 ## Tip: More aesthetics setting and mapping
 
-So far, we've seen how to use an aesthetic (such as **color**) as a *mapping* to a variable in the data. 
+So far, we've seen how to use an aesthetic (such as **colour**) as a *mapping* to a variable in the data. 
 
 For example, when we use `geom_point(aes(color = class))`, ggplot will give a different color to each class. 
 
@@ -166,7 +185,9 @@ Hint: use `size` to change the point size.
 
 Answers may vary.
 
-Notice that the `color` argument is supplied outside of the `aes()` function. This means that it applies to all data points on the graph and is not related to a specific variable.
+Notice that the `colour` argument is supplied outside of the `aes()` function. 
+
+This means that it applies to all data points on the graph and is not related to a specific variable.
 
 ```{r ch-set, fig.alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class."}
 ggplot(data = mpg, 
@@ -193,7 +214,7 @@ In the next episode, we will shift our focus from relationships between variable
 - Scatterplots are useful for exploring relationships between variables.
 - Aesthetic mappings connect variables in the data to visual properties such as colour.
 - Aesthetic settings apply the same visual property to all observations.
-- ggplot2 plots can be built up by adding layers with `+`.
+- `ggplot2` plots can be built up by adding layers with `+`.
 - Different layers can have different aesthetic mappings.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

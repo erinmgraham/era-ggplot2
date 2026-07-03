@@ -41,11 +41,11 @@ These show the overall shape of the data. But sometimes we’re less interested 
 
 ## Introducing Boxplots
 
-A boxplot is a visual summary of numerical data that displays its distribution, spread, and skewness in a compact way. 
+A **boxplot** is a visual summary of numerical data that displays its distribution, spread, and skewness in a compact way. 
 
 We replace `geom_density()` with `geom_boxplot()` in our plot.
 
-```{r box-hwy, fig.alt="Box plot of highway fuel efficiency."}
+```{r box-hwy, fig.alt="Boxplot of highway fuel efficiency."}
 ggplot(data = mpg, 
        mapping = aes(x = hwy)) +
   geom_boxplot()
@@ -85,16 +85,17 @@ Answers may vary.
 
 ## Density vs boxplot
 
-**Density** plots show full shape, good for fewer groups.
-**Boxplots** show summary, better for many groups.
+Density plots show full shape, good for fewer groups.
+
+Boxplots show summary, better for many groups.
 
 Same underlying data, different level of detail.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Do More With Box plots
+## Do More With Boxplots
 
-Box plots can be used in many ways to extract more information from our data. They are especially common in statistical analysis and reporting.
+Boxplots can be used in many ways to extract more information from our data. They are especially common in statistical analysis and reporting.
 
 So far, we’ve summarised a single distribution.
 
@@ -105,7 +106,7 @@ To get a boxplot for each `class`, we’re actually making two different changes
 - `class` → x (categorical group)
 - `hwy` → y (numeric variable)
 
-```{r box-hwy-class, fig.alt="Box plot of highway fuel efficiency."}
+```{r box-hwy-class, fig.alt="Boxplot of highway fuel efficiency."}
 ggplot(data = mpg, 
        mapping = aes(x=class, y = hwy)) +
   geom_boxplot()
@@ -115,9 +116,10 @@ Here, each box represents the distribution of one group. The summary values we l
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Mapping Change
+## Note Mapping Change
 
 geom_density: x = hwy
+
 geom_boxplot (grouped): x = class, y = hwy
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -146,7 +148,7 @@ Reuse what we already know and use `fill` to colour each class to help visually 
 
 :::::::::::::::  solution
 
-```{r box-hwy-class-colour, fig.alt="Box plot of highway fuel efficiency."}
+```{r box-hwy-class-colour, fig.alt="Boxplot of highway fuel efficiency."}
 ggplot(data = mpg, 
        mapping = aes(x=class, y = hwy, fill = class)) +
   geom_boxplot()

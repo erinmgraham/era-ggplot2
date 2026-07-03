@@ -46,7 +46,7 @@ A **distribution** tells us:
 
 ## Visualising a distribution
 
-We’ll start by looking at highway fuel efficiency (`hwy`) in the mpg dataset. 
+We’ll start by looking at highway fuel efficiency (`hwy`) in the `mpg` dataset. 
 
 
 ```{r dens-hwy, fig.alt="Density plot of highway fuel efficiency."}
@@ -188,10 +188,13 @@ Density plots are useful because they:
 - Are smooth, reducing noise
 - Make comparisons easier when multiple groups overlap
 
-
+ 
 ## Histograms
 
-A **histogram** shows the same idea differently:
+
+So far, we've used density plots to visualise distributions. Density plots are a smooth summary of the data.
+
+Another common way to display a distribution is with a **histogram**.  Instead of drawing a smooth curve, a histogram groups values into bins and counts how many observations fall into each bin.
 
 ```{r hwy-hist, fig.alt="Density plot of highway fuel efficiency with data points."}
 ggplot(data = mpg, 
@@ -199,15 +202,22 @@ ggplot(data = mpg,
   geom_histogram()
 ```
 
-Unlike density plots, histograms depend on how the data are split into **bins**. Instead of a smooth curve, values are grouped into bars that show counts in each bin.
+
+Both density plots and histograms show the same underlying distribution.
+
+- Density plots emphasise the overall shape.
+- Histograms show the underlying counts.
+- Histograms depend on how the data are split into **bins**.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Same distribution, different representation
+## Density plots and histograms
 
-The appearance depends on how bins are chosen.
+Density plots show the overall shape of a distribution using a smooth curve.
 
-Density plots are often easier to compare.
+Histograms show the same distribution using bars and counts.
+
+Same underlying data, different representation.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -241,7 +251,7 @@ We used density plots to visualise how values are spread, and extended what we l
 
 This introduced an important idea: while mappings like fill can add insight, they can also introduce overlap and complexity, especially as the number of groups increases.
 
-In the next episode, we’ll build on this by looking more closely at how ggplot2 handles groups, and how we can control and organise them to make our visualisations clearer and more informative.
+In the next episode, we’ll build on this by looking more closely at how `ggplot2` handles groups, and how we can control and organise them to make our visualisations clearer and more informative.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 

@@ -39,7 +39,7 @@ So far we've focused on creating plots to answer different questions:
 
 The final step is communication.
 
-Even when a plot contains useful information, it may be difficult to read or interpret. ggplot2 provides tools that help us organise information and make plots clearer for our audience.
+Even when a plot contains useful information, it may be difficult to read or interpret. `ggplot2` provides tools that help us organise information and make plots clearer for our audience.
 
 ## Improving labels
 
@@ -176,7 +176,11 @@ ggplot(data = mpg,
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-In this episode, we focused on communicating information clearly using labels, facets, and simple formatting improvements. Throughout this workshop, we have used `ggplot2` to explore relationships, distributions, group comparisons, and composition. Clear communication helps ensure those visualisations can be understood and used by others.
+In this episode, we focused on communicating information clearly using labels, facets, and simple formatting improvements. 
+
+Throughout this workshop, we have used `ggplot2` to explore relationships, distributions, group comparisons, and composition. 
+
+Clear communication helps ensure those visualisations can be understood and used by others.
 
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
