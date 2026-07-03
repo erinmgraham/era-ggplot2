@@ -8,18 +8,26 @@
 # lc: Library Carpentry
 # cp: Carpentries (to use for instructor training for instance)
 # incubator: The Carpentries Incubator
+# 
+# This option supports custom types so lessons can be branded
+# and themed with your own logo and alt-text (see `carpentry_description`)
+# See https://carpentries.github.io/sandpaper-docs/editing.html#adding-a-custom-logo
 carpentry: 'swc'
+
+# Alt-text description of the lesson.
+carpentry_description: 'Lesson Description'
 
 # Overall title for pages.
 title: 'Introduction to ggplot2'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
-created: '2026-06-04'
+created: 2026-07-03 
 
 # Comma-separated list of keywords for the lesson
 keywords: 'ggplot2, tidyverse, data-visualization, data-visualisation, R'
 
 # Life cycle stage of the lesson
+# refer to <https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html> for details
 # possible values: pre-alpha, alpha, beta, stable
 life_cycle: 'pre-alpha'
 
@@ -59,29 +67,23 @@ contact: 'erin.graham@jcu.edu.au'
 
 # Order of episodes in your lesson
 episodes:
-# introduction-r-rstudio.Rmd
-#- visualizing-ggplot.Rmd
-#- how-r-thinks-about-data.Rmd
-#- working-with-data.Rmd
-- 01_ggplot2_essentials.Rmd
-- 02_relationships.Rmd
-- 03_distributions.Rmd
-- 04_groups.Rmd
-- 05_composition.Rmd
-- 06_presentation.Rmd
+- 01-intro-to-shiny.Rmd
+- 02-shiny-ui.Rmd
+- 03-input-output.Rmd
+- 04-reactives.Rmd
+- 05-publishing-shiny-app.Rmd
 
 # Information for Learners
-learners:
-- reference.md
+learners: 
 
 # Information for Instructors
-instructors:
-- instructor-notes.md
+instructors: 
 
 # Learner Profiles
-profiles:
+profiles: 
 
 # Customisation ---------------------------------------------
 #
 # This space below is where custom yaml items (e.g. pinning
 # sandpaper and varnish versions) should live
+
