@@ -1,3 +1,11 @@
+
+# Authors
+
+## Original work
+
+This lesson was adapted from the [Data Analysis and Visualization in R for Ecologists
+](https://datacarpentry.github.io/R-ecology-lesson/index.html)
+
 R-ecology-lesson was written by:
 François Michonneau
 Tracy Teal
@@ -104,3 +112,18 @@ Tara Webster
 Taylor Reiter
 Will Pearse
 Ye Li
+
+
+## Adaptation and revisions
+
+This version was substantially revised and expanded by:
+
+- Erin Graham
+
+Revisions include:
+
+- Retooled Setup and Episodes
+- Removed all other content
+
+
+
