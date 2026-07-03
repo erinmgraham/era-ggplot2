@@ -28,7 +28,7 @@ We've seen how plots can be created quickly using the key components of a `ggplo
 
 Let's take a closer look at the relationship between engine size (`displ`) and city fuel efficiency (`cty`). We will also explore how additional aesthetic mappings and layers can help reveal patterns in the data.
 
-Recall our displacement vs highway fuel efficiency plot.
+Recall our displacement vs city fuel efficiency plot.
 
 ```{r ggplot-with-aes-geom-cty, fig.alt="Scatter plot of  displacement vs city fuel efficiency with data points."}
 ggplot(data = mpg, 
@@ -91,7 +91,7 @@ Layers in `ggplot2` are building blocks stacked on top of each other to create m
 
 Let's add  `geom_smooth()` layer to the plot. Recall we use the `+` symbol to stack the layers:
   
-```{r hwy-point, fig.alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible. It includes a blue trendline with shaded confidence interval."}
+```{r cty-point, fig.alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible. It includes a blue trendline with shaded confidence interval."}
 ggplot(data = mpg, mapping = aes(x = displ, y = cty)) + 
   geom_point(aes(colour = class), alpha = 0.3) +
   geom_smooth()
