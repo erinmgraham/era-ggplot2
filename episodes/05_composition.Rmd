@@ -138,6 +138,18 @@ Answers may vary.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Count vs proportion bars
+
+Counts are the number of observations.
+
+Proportions are the relative contribution.
+
+Same underlying data, different question.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 In this episode, we used bar plots to explore the composition of our data.
 
 By mapping variables to fill, we broke counts into parts, and used proportions to compare how groups are made up.
