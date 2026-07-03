@@ -35,6 +35,11 @@ ggplot(data = mpg,
   geom_point()
 ```
 
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
+```
+
 
 ## Mapping and Setting Aesthetics
 
@@ -47,6 +52,11 @@ For example, we can **map** a colour to each `class` of vehicle.
 ggplot(data = mpg, mapping = aes(x = displ, y = cty,
                                  colour = class)) + 
   geom_point()
+```
+
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -75,12 +85,22 @@ ggplot(data = mpg, mapping = aes(x = displ, y = cty,
   geom_point(alpha = 0.3)
 ```
 
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
+```
+
 Finally, we both map and set aethestics for a **geom**. In this example, we will move the colour by class aesthetic to the specific geom_point(). This plot should look like the one above, we've only moved the coloring to the layer in order to make more complex visualisations.
 
 
 ``` r
 ggplot(data = mpg, mapping = aes(x = displ, y = cty)) + 
   geom_point(aes(colour = class), alpha = 0.3)
+```
+
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
 ```
 
 Here the colour mapping only applies to the points because it was specified within `geom_point()`. This allows different layers to use different aesthetic mappings.
@@ -98,6 +118,11 @@ Let's add  `geom_smooth()` layer to the plot. Recall we use the `+` symbol to st
 ggplot(data = mpg, mapping = aes(x = displ, y = cty)) + 
   geom_point(aes(colour = class), alpha = 0.3) +
   geom_smooth()
+```
+
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
 ```
 
 The `geom_smooth()` layer adds a trend line to the plot, making the overall relationship between engine size and fuel efficiency easier to see. In this case, it highlights that fuel efficiency tends to decrease as engine size increases.
@@ -122,6 +147,11 @@ The points now get drawn over the line! If we look closely the smooth line was d
 ggplot(data = mpg, mapping = aes(x = displ, y = cty)) + 
   geom_smooth() +
   geom_point(aes(colour = class), alpha = 0.3)
+```
+
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
 ```
 
 :::::::::::::::::::::::::

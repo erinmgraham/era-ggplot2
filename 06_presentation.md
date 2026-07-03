@@ -45,6 +45,11 @@ ggplot(data = mpg, mapping = aes(x = class)) +
   geom_bar()
 ```
 
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
+```
+
 The plot communicates the data, but the labels come directly from the dataset.
 
 We can make the plot more informative using `labs()`:
@@ -58,6 +63,11 @@ ggplot(data = mpg, mapping = aes(x = class)) +
     y = "Count",
     title = "Number of vehicles by class"
   )
+```
+
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
 ```
   
 ### What changed?
@@ -80,6 +90,11 @@ ggplot(data = mpg, mapping = aes(x = class, fill = drv)) +
   geom_bar()
 ```
 
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
+```
+
 Instead of showing everything in one panel, we can create a separate panel for each drive type:
 
 
@@ -87,6 +102,11 @@ Instead of showing everything in one panel, we can create a separate panel for e
 ggplot(data = mpg, mapping = aes(x = class)) +
   geom_bar() +
   facet_wrap(~ drv)
+```
+
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
 ```
 
 ### What happened?
@@ -135,6 +155,11 @@ ggplot(data = mpg, mapping = aes(x = class)) +
   theme(axis.text.x = element_text(angle = 45))
 ```
 
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
+```
+
 Rotating labels prevents overlapping text, improves readability, and requires only a small modification.
 
 
@@ -164,6 +189,11 @@ ggplot(data = mpg, aes(x = class, fill = drv)) +
     y = "Proportion"
   ) +
   theme(axis.text.x = element_text(angle = 45))
+```
+
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
 ```
 
 :::::::::::::::::::::::::

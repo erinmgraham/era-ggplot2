@@ -39,6 +39,11 @@ ggplot(data = mpg, mapping = aes(x = class)) +
   geom_bar()
 ```
 
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
+```
+
 In this plot, `class` is a categorical variable and `geom_bar()` counts the number of observations in each category. The height of each bar shows how many there are. 
 
 Notice that the y-axis shows counts. The taller the bar, the more observations belong to that class.
@@ -69,6 +74,11 @@ We can break this down further using `fill`, just like before. What if we wanted
 ``` r
 ggplot(data = mpg, mapping = aes(x = class, fill = drv)) +
   geom_bar()
+```
+
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
 ```
 
 Bars are now split into segments where each segment represents a level of `drv` or drive type.
@@ -106,6 +116,11 @@ To show proportions instead of counts , add `position = "fill"` as an argument t
 ``` r
 ggplot(data = mpg, mapping = aes(x = class, fill = drv)) +
   geom_bar(position = "fill")
+```
+
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
 ```
 
 At first glance, this plot looks similar to the previous one. However, notice that all bars now have the same height.

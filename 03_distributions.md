@@ -49,6 +49,11 @@ ggplot(data = mpg, mapping = aes(x = hwy)) +
   geom_density()
 ```
 
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
+```
+
 If we map a single variable (`hwy`) to the x-axis, `geom_density()` creates a smooth curve. The height shows where values are more common.
 
 ## Interpreting a distribution
@@ -104,6 +109,11 @@ ggplot(data = mpg, mapping = aes(x = cty)) +
   geom_density()
 ```
 
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
+```
+
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -118,6 +128,11 @@ Here, we’ll compare fuel efficiency across vehicle `class`:
 ``` r
 ggplot(data = mpg, mapping = aes(x = hwy, fill = class)) +
   geom_density()
+```
+
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
 ```
 
 
@@ -169,6 +184,11 @@ ggplot(data = mpg, mapping = aes(x = cty, fill = class)) +
   geom_density()
 ```
 
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
+```
+
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -191,6 +211,11 @@ A **histogram** shows the same idea differently:
 ``` r
 ggplot(data = mpg, mapping = aes(x = hwy)) +
   geom_histogram()
+```
+
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
 ```
 
 Unlike density plots, histograms depend on how the data are split into **bins**. Instead of a smooth curve, values are grouped into bars that show counts in each bin.
@@ -223,6 +248,11 @@ Most learners will move the `fill` argument directly from the ggplot layer to th
 ``` r
 ggplot(data = mpg, mapping = aes(x = cty)) +
   geom_histogram(aes(fill = class))
+```
+
+``` error
+Error in `ggplot()`:
+! could not find function "ggplot"
 ```
 
 :::::::::::::::::::::::::
