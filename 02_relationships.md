@@ -19,6 +19,8 @@ source: Rmd
 - How do aesthetic mappings and layers help reveal patterns in data?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
   
 We've seen how plots can be created quickly using the key components of a `ggplot` and we know that scatter plots can be used to explore relationships between variables in our dataset.
 

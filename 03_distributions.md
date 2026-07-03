@@ -22,6 +22,8 @@ source: Rmd
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+
+
 In the previous episode, we used scatterplots to explore relationships between two variables.
 
 Now we’re going to shift focus and instead of asking, _How do two variables relate?_, we ask, _What does one variable look like on its own?_. This is called a **distribution**.

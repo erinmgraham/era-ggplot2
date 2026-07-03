@@ -21,6 +21,8 @@ source: Rmd
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+
+
 In the previous episode, we used density plots to look at the distribution of a variable.
 
 

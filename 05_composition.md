@@ -21,6 +21,8 @@ source: Rmd
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+
+
 In the previous episode, we used boxplots to summarise distributions and compare groups.
 
 Now we’ll look at a different question. _How is our data made up?_
