@@ -23,6 +23,11 @@ source: Rmd
 
 
 
+
+``` r
+library(ggplot2)
+```
+
 In the previous episode, we used boxplots to summarise distributions and compare groups.
 
 Now we’ll look at a different question. _How is our data made up?_
@@ -39,10 +44,7 @@ ggplot(data = mpg, mapping = aes(x = class)) +
   geom_bar()
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/05_composition-rendered-bar-hwy-1.png" alt="Bar plot showing the number of mpg observations for each class of vehicle ." style="display: block; margin: auto;" />
 
 In this plot, `class` is a categorical variable and `geom_bar()` counts the number of observations in each category. The height of each bar shows how many there are. 
 
@@ -76,10 +78,7 @@ ggplot(data = mpg, mapping = aes(x = class, fill = drv)) +
   geom_bar()
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/05_composition-rendered-bar-hwy-drv-1.png" alt="Bar plot showing the number of mpg observations for each class of vehicle ." style="display: block; margin: auto;" />
 
 Bars are now split into segments where each segment represents a level of `drv` or drive type.
 
@@ -118,10 +117,7 @@ ggplot(data = mpg, mapping = aes(x = class, fill = drv)) +
   geom_bar(position = "fill")
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/05_composition-rendered-bar-hwy-prop-1.png" alt="Bar plot showing the proportion of mpg observations for each class of vehicle and drive type." style="display: block; margin: auto;" />
 
 At first glance, this plot looks similar to the previous one. However, notice that all bars now have the same height.
 

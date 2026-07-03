@@ -24,6 +24,11 @@ source: Rmd
 
 
 
+
+``` r
+library(ggplot2)
+```
+
 In the previous episode, we used scatterplots to explore relationships between two variables.
 
 Now we’re going to shift focus and instead of asking, _How do two variables relate?_, we ask, _What does one variable look like on its own?_. This is called a **distribution**.
@@ -49,10 +54,7 @@ ggplot(data = mpg, mapping = aes(x = hwy)) +
   geom_density()
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/03_distributions-rendered-dens-hwy-1.png" alt="Density plot of highway fuel efficiency." style="display: block; margin: auto;" />
 
 If we map a single variable (`hwy`) to the x-axis, `geom_density()` creates a smooth curve. The height shows where values are more common.
 
@@ -109,10 +111,7 @@ ggplot(data = mpg, mapping = aes(x = cty)) +
   geom_density()
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/03_distributions-rendered-dens-cty-1.png" alt="Density plot of city fuel efficiency." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -130,10 +129,7 @@ ggplot(data = mpg, mapping = aes(x = hwy, fill = class)) +
   geom_density()
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/03_distributions-rendered-dens-hwy-class-1.png" alt="Density plot of highway fuel efficiency filled with colour for each class." style="display: block; margin: auto;" />
 
 
 When we set `fill` to `class` each class gets its own distribution.
@@ -184,10 +180,7 @@ ggplot(data = mpg, mapping = aes(x = cty, fill = class)) +
   geom_density()
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/03_distributions-rendered-dens-cty-class-1.png" alt="Density plot of city fuel efficiency filled with colour for each class." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -213,10 +206,11 @@ ggplot(data = mpg, mapping = aes(x = hwy)) +
   geom_histogram()
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
+``` output
+`stat_bin()` using `bins = 30`. Pick better value `binwidth`.
 ```
+
+<img src="fig/03_distributions-rendered-hwy-hist-1.png" alt="Density plot of highway fuel efficiency with data points." style="display: block; margin: auto;" />
 
 Unlike density plots, histograms depend on how the data are split into **bins**. Instead of a smooth curve, values are grouped into bars that show counts in each bin.
 
@@ -250,10 +244,11 @@ ggplot(data = mpg, mapping = aes(x = cty)) +
   geom_histogram(aes(fill = class))
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
+``` output
+`stat_bin()` using `bins = 30`. Pick better value `binwidth`.
 ```
+
+<img src="fig/03_distributions-rendered-dens-cty-class-fill-1.png" alt="Density plot of city fuel efficiency filled with colour for each class." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 

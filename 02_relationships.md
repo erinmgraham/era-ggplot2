@@ -21,12 +21,17 @@ source: Rmd
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-  
+
+
+``` r
+library(ggplot2)
+```
+
 We've seen how plots can be created quickly using the key components of a `ggplot` and we know that scatter plots can be used to explore relationships between variables in our dataset.
 
 Let's take a closer look at the relationship between engine size (`displ`) and city fuel efficiency (`cty`). We will also explore how additional aesthetic mappings and layers can help reveal patterns in the data.
 
-Recall our displacement vs highway fuel efficiency plot.
+Recall our displacement vs city fuel efficiency plot.
 
 
 ``` r
@@ -35,10 +40,7 @@ ggplot(data = mpg,
   geom_point()
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/02_relationships-rendered-ggplot-with-aes-geom-cty-1.png" alt="Scatter plot of  displacement vs city fuel efficiency with data points." style="display: block; margin: auto;" />
 
 
 ## Mapping and Setting Aesthetics
@@ -54,10 +56,7 @@ ggplot(data = mpg, mapping = aes(x = displ, y = cty,
   geom_point()
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/02_relationships-rendered-aes_map_colour-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -85,10 +84,7 @@ ggplot(data = mpg, mapping = aes(x = displ, y = cty,
   geom_point(alpha = 0.3)
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/02_relationships-rendered-aes_set_alpha-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible." style="display: block; margin: auto;" />
 
 Finally, we both map and set aethestics for a **geom**. In this example, we will move the colour by class aesthetic to the specific geom_point(). This plot should look like the one above, we've only moved the coloring to the layer in order to make more complex visualisations.
 
@@ -98,10 +94,7 @@ ggplot(data = mpg, mapping = aes(x = displ, y = cty)) +
   geom_point(aes(colour = class), alpha = 0.3)
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/02_relationships-rendered-aes_set_map-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible." style="display: block; margin: auto;" />
 
 Here the colour mapping only applies to the points because it was specified within `geom_point()`. This allows different layers to use different aesthetic mappings.
 
@@ -120,10 +113,11 @@ ggplot(data = mpg, mapping = aes(x = displ, y = cty)) +
   geom_smooth()
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
+``` output
+`geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
+
+<img src="fig/02_relationships-rendered-cty-point-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible. It includes a blue trendline with shaded confidence interval." style="display: block; margin: auto;" />
 
 The `geom_smooth()` layer adds a trend line to the plot, making the overall relationship between engine size and fuel efficiency easier to see. In this case, it highlights that fuel efficiency tends to decrease as engine size increases.
 
@@ -149,10 +143,11 @@ ggplot(data = mpg, mapping = aes(x = displ, y = cty)) +
   geom_point(aes(colour = class), alpha = 0.3)
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
+``` output
+`geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
+
+<img src="fig/02_relationships-rendered-ch_order-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible. It includes a blue trendline with error bars." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
@@ -199,10 +194,11 @@ ggplot(data = mpg, mapping = aes(x = displ, y = cty)) +
   geom_point(size = 3, color = "orange")
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
+``` output
+`geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
+
+<img src="fig/02_relationships-rendered-ch-set-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::  

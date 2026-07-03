@@ -23,6 +23,11 @@ source: Rmd
 
 
 
+
+``` r
+library(ggplot2)
+```
+
 In the previous episode, we used density plots to look at the distribution of a variable.
 
 
@@ -31,10 +36,7 @@ ggplot(data = mpg, mapping = aes(x = hwy)) +
   geom_density()
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/04_groups-rendered-dens-hwy-1.png" alt="Density plot of highway fuel efficiency." style="display: block; margin: auto;" />
 
 These show the overall shape of the data. But sometimes we’re less interested in the full shape, and more in a quick summary. To do that, we can use a different type of plot.
 
@@ -50,10 +52,7 @@ ggplot(data = mpg, mapping = aes(x = hwy)) +
   geom_boxplot()
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/04_groups-rendered-box-hwy-1.png" alt="Box plot of highway fuel efficiency." style="display: block; margin: auto;" />
 
 Here we have single boxplot of highway fuel efficiency. This looks quite different to everything we've seen so far. Unlike density plots, this doesn’t show the full shape — it summarises the distribution.
 
@@ -115,10 +114,7 @@ ggplot(data = mpg, mapping = aes(x=class, y = hwy)) +
   geom_boxplot()
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/04_groups-rendered-box-hwy-class-1.png" alt="Box plot of highway fuel efficiency." style="display: block; margin: auto;" />
 
 Here, each box represents the distribution of one group. The summary values we learned above are calculated for each class of vehicle.
 
@@ -161,10 +157,7 @@ ggplot(data = mpg, mapping = aes(x=class, y = hwy, fill = class)) +
   geom_boxplot()
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/04_groups-rendered-box-hwy-class-colour-1.png" alt="Box plot of highway fuel efficiency." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::::

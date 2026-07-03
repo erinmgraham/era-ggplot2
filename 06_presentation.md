@@ -24,6 +24,11 @@ source: Rmd
 
 
 
+
+``` r
+library(ggplot2)
+```
+
 So far we've focused on creating plots to answer different questions:
 
 - Relationships
@@ -45,10 +50,7 @@ ggplot(data = mpg, mapping = aes(x = class)) +
   geom_bar()
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/06_presentation-rendered-bar-class-1.png" alt="Bar plot of highway fuel efficiency for each class of vehicle." style="display: block; margin: auto;" />
 
 The plot communicates the data, but the labels come directly from the dataset.
 
@@ -65,10 +67,7 @@ ggplot(data = mpg, mapping = aes(x = class)) +
   )
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/06_presentation-rendered-bar-class-labs-1.png" alt="Bar plot of highway fuel efficiency for each class of vehicle." style="display: block; margin: auto;" />
   
 ### What changed?
 
@@ -90,10 +89,7 @@ ggplot(data = mpg, mapping = aes(x = class, fill = drv)) +
   geom_bar()
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/06_presentation-rendered-bar-hwy-comp-1.png" alt="Bar plot showing the number of mpg observations for each class of vehicle ." style="display: block; margin: auto;" />
 
 Instead of showing everything in one panel, we can create a separate panel for each drive type:
 
@@ -104,10 +100,7 @@ ggplot(data = mpg, mapping = aes(x = class)) +
   facet_wrap(~ drv)
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/06_presentation-rendered-bar-hwy-facet-1.png" alt="Bar plot showing the number of mpg observations for each class of vehicle. Each drive type has its own panel." style="display: block; margin: auto;" />
 
 ### What happened?
 
@@ -155,10 +148,7 @@ ggplot(data = mpg, mapping = aes(x = class)) +
   theme(axis.text.x = element_text(angle = 45))
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/06_presentation-rendered-bar-hwy-facet-lab-1.png" alt="Bar plot showing the number of mpg observations for each class of vehicle. Each drive type has its own panel. Labels are rotated 45 degrees to improve readability." style="display: block; margin: auto;" />
 
 Rotating labels prevents overlapping text, improves readability, and requires only a small modification.
 
@@ -191,10 +181,7 @@ ggplot(data = mpg, aes(x = class, fill = drv)) +
   theme(axis.text.x = element_text(angle = 45))
 ```
 
-``` error
-Error in `ggplot()`:
-! could not find function "ggplot"
-```
+<img src="fig/06_presentation-rendered-bar-hwy-facet-ch-1.png" alt="Bar plot showing the number of mpg observations for each class of vehicle. Each drive type has its own panel." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 
