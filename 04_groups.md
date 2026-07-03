@@ -24,15 +24,13 @@ source: Rmd
 
 
 
-``` r
-library(ggplot2)
-```
 
 In the previous episode, we used density plots to look at the distribution of a variable.
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x = hwy)) +
+ggplot(data = mpg, 
+       mapping = aes(x = hwy)) +
   geom_density()
 ```
 
@@ -42,17 +40,18 @@ These show the overall shape of the data. But sometimes we’re less interested 
 
 ## Introducing Boxplots
 
-A boxplot is a visual summary of numerical data that displays its distribution, spread, and skewness in a compact way. 
+A **boxplot** is a visual summary of numerical data that displays its distribution, spread, and skewness in a compact way. 
 
 We replace `geom_density()` with `geom_boxplot()` in our plot.
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x = hwy)) +
+ggplot(data = mpg, 
+       mapping = aes(x = hwy)) +
   geom_boxplot()
 ```
 
-<img src="fig/04_groups-rendered-box-hwy-1.png" alt="Box plot of highway fuel efficiency." style="display: block; margin: auto;" />
+<img src="fig/04_groups-rendered-box-hwy-1.png" alt="Boxplot of highway fuel efficiency." style="display: block; margin: auto;" />
 
 Here we have single boxplot of highway fuel efficiency. This looks quite different to everything we've seen so far. Unlike density plots, this doesn’t show the full shape — it summarises the distribution.
 
@@ -88,16 +87,17 @@ Answers may vary.
 
 ## Density vs boxplot
 
-**Density** plots show full shape, good for fewer groups.
-**Boxplots** show summary, better for many groups.
+Density plots show full shape, good for fewer groups.
+
+Boxplots show summary, better for many groups.
 
 Same underlying data, different level of detail.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Do More With Box plots
+## Do More With Boxplots
 
-Box plots can be used in many ways to extract more information from our data. They are especially common in statistical analysis and reporting.
+Boxplots can be used in many ways to extract more information from our data. They are especially common in statistical analysis and reporting.
 
 So far, we’ve summarised a single distribution.
 
@@ -110,19 +110,21 @@ To get a boxplot for each `class`, we’re actually making two different changes
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x=class, y = hwy)) +
+ggplot(data = mpg, 
+       mapping = aes(x=class, y = hwy)) +
   geom_boxplot()
 ```
 
-<img src="fig/04_groups-rendered-box-hwy-class-1.png" alt="Box plot of highway fuel efficiency." style="display: block; margin: auto;" />
+<img src="fig/04_groups-rendered-box-hwy-class-1.png" alt="Boxplot of highway fuel efficiency." style="display: block; margin: auto;" />
 
 Here, each box represents the distribution of one group. The summary values we learned above are calculated for each class of vehicle.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Mapping Change
+## Note Mapping Change
 
 geom_density: x = hwy
+
 geom_boxplot (grouped): x = class, y = hwy
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -153,11 +155,12 @@ Reuse what we already know and use `fill` to colour each class to help visually 
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x=class, y = hwy, fill = class)) +
+ggplot(data = mpg, 
+       mapping = aes(x=class, y = hwy, fill = class)) +
   geom_boxplot()
 ```
 
-<img src="fig/04_groups-rendered-box-hwy-class-colour-1.png" alt="Box plot of highway fuel efficiency." style="display: block; margin: auto;" />
+<img src="fig/04_groups-rendered-box-hwy-class-colour-1.png" alt="Boxplot of highway fuel efficiency." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::::

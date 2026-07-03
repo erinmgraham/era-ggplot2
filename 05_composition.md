@@ -24,9 +24,6 @@ source: Rmd
 
 
 
-``` r
-library(ggplot2)
-```
 
 In the previous episode, we used boxplots to summarise distributions and compare groups.
 
@@ -40,7 +37,8 @@ To start, let’s count how many observations fall into each vehicle `class`. As
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x = class)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class)) +
   geom_bar()
 ```
 
@@ -74,7 +72,8 @@ We can break this down further using `fill`, just like before. What if we wanted
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x = class, fill = drv)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class, fill = drv)) +
   geom_bar()
 ```
 
@@ -113,7 +112,8 @@ To show proportions instead of counts , add `position = "fill"` as an argument t
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x = class, fill = drv)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class, fill = drv)) +
   geom_bar(position = "fill")
 ```
 

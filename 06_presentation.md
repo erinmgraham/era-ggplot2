@@ -25,9 +25,6 @@ source: Rmd
 
 
 
-``` r
-library(ggplot2)
-```
 
 So far we've focused on creating plots to answer different questions:
 
@@ -38,7 +35,7 @@ So far we've focused on creating plots to answer different questions:
 
 The final step is communication.
 
-Even when a plot contains useful information, it may be difficult to read or interpret. ggplot2 provides tools that help us organise information and make plots clearer for our audience.
+Even when a plot contains useful information, it may be difficult to read or interpret. `ggplot2` provides tools that help us organise information and make plots clearer for our audience.
 
 ## Improving labels
 
@@ -46,7 +43,8 @@ Let's start with a plot we've seen before:
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x = class)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class)) +
   geom_bar()
 ```
 
@@ -58,7 +56,8 @@ We can make the plot more informative using `labs()`:
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x = class)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class)) +
   geom_bar() +
   labs(
     x = "Vehicle class",
@@ -85,7 +84,8 @@ In our composition episode, we examined vehicle classes and drive type:
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x = class, fill = drv)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class, fill = drv)) +
   geom_bar()
 ```
 
@@ -95,7 +95,8 @@ Instead of showing everything in one panel, we can create a separate panel for e
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x = class)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class)) +
   geom_bar() +
   facet_wrap(~ drv)
 ```
@@ -142,7 +143,8 @@ We can rotate axis text to make it easier to read:
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x = class)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class)) +
   geom_bar() +
   facet_wrap(~ drv) +
   theme(axis.text.x = element_text(angle = 45))
@@ -171,7 +173,8 @@ Answers may vary.
 
 
 ``` r
-ggplot(data = mpg, aes(x = class, fill = drv)) +
+ggplot(data = mpg, 
+       mapping = aes(x = class, fill = drv)) +
   geom_bar(position = "fill") +
   labs(
     title = "Drive type composition by vehicle class",
@@ -187,7 +190,11 @@ ggplot(data = mpg, aes(x = class, fill = drv)) +
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-In this episode, we focused on communicating information clearly using labels, facets, and simple formatting improvements. Throughout this workshop, we have used `ggplot2` to explore relationships, distributions, group comparisons, and composition. Clear communication helps ensure those visualisations can be understood and used by others.
+In this episode, we focused on communicating information clearly using labels, facets, and simple formatting improvements. 
+
+Throughout this workshop, we have used `ggplot2` to explore relationships, distributions, group comparisons, and composition. 
+
+Clear communication helps ensure those visualisations can be understood and used by others.
 
 
 :::::::::::::::::::::::::::::::::::::::: keypoints

@@ -25,9 +25,6 @@ source: Rmd
 
 
 
-``` r
-library(ggplot2)
-```
 
 In the previous episode, we used scatterplots to explore relationships between two variables.
 
@@ -45,12 +42,13 @@ A **distribution** tells us:
 
 ## Visualising a distribution
 
-We’ll start by looking at highway fuel efficiency (`hwy`) in the mpg dataset. 
+We’ll start by looking at highway fuel efficiency (`hwy`) in the `mpg` dataset. 
 
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x = hwy)) +
+ggplot(data = mpg, 
+       mapping = aes(x = hwy)) +
   geom_density()
 ```
 
@@ -107,7 +105,8 @@ City fuel efficiency has a single cluster of vehicles at around 15-17 mpg with  
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x = cty)) +
+ggplot(data = mpg, 
+       mapping = aes(x = cty)) +
   geom_density()
 ```
 
@@ -125,7 +124,8 @@ Here, we’ll compare fuel efficiency across vehicle `class`:
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x = hwy, fill = class)) +
+ggplot(data = mpg, 
+       mapping = aes(x = hwy, fill = class)) +
   geom_density()
 ```
 
@@ -176,7 +176,8 @@ Answer may vary.
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x = cty, fill = class)) +
+ggplot(data = mpg, 
+       mapping = aes(x = cty, fill = class)) +
   geom_density()
 ```
 
@@ -195,14 +196,18 @@ Density plots are useful because they:
 - Are smooth, reducing noise
 - Make comparisons easier when multiple groups overlap
 
-
+ 
 ## Histograms
 
-A **histogram** shows the same idea differently:
+
+So far, we've used density plots to visualise distributions. Density plots are a smooth summary of the data.
+
+Another common way to display a distribution is with a **histogram**.  Instead of drawing a smooth curve, a histogram groups values into bins and counts how many observations fall into each bin.
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x = hwy)) +
+ggplot(data = mpg, 
+       mapping = aes(x = hwy)) +
   geom_histogram()
 ```
 
@@ -212,15 +217,22 @@ ggplot(data = mpg, mapping = aes(x = hwy)) +
 
 <img src="fig/03_distributions-rendered-hwy-hist-1.png" alt="Density plot of highway fuel efficiency with data points." style="display: block; margin: auto;" />
 
-Unlike density plots, histograms depend on how the data are split into **bins**. Instead of a smooth curve, values are grouped into bars that show counts in each bin.
+
+Both density plots and histograms show the same underlying distribution.
+
+- Density plots emphasise the overall shape.
+- Histograms show the underlying counts.
+- Histograms depend on how the data are split into **bins**.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Same distribution, different representation
+## Density plots and histograms
 
-The appearance depends on how bins are chosen.
+Density plots show the overall shape of a distribution using a smooth curve.
 
-Density plots are often easier to compare.
+Histograms show the same distribution using bars and counts.
+
+Same underlying data, different representation.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -240,7 +252,8 @@ Most learners will move the `fill` argument directly from the ggplot layer to th
 
 
 ``` r
-ggplot(data = mpg, mapping = aes(x = cty)) +
+ggplot(data = mpg, 
+       mapping = aes(x = cty)) +
   geom_histogram(aes(fill = class))
 ```
 
@@ -260,7 +273,7 @@ We used density plots to visualise how values are spread, and extended what we l
 
 This introduced an important idea: while mappings like fill can add insight, they can also introduce overlap and complexity, especially as the number of groups increases.
 
-In the next episode, we’ll build on this by looking more closely at how ggplot2 handles groups, and how we can control and organise them to make our visualisations clearer and more informative.
+In the next episode, we’ll build on this by looking more closely at how `ggplot2` handles groups, and how we can control and organise them to make our visualisations clearer and more informative.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
