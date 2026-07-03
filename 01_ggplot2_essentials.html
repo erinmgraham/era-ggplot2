@@ -210,6 +210,7 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#data">Data</a></li>
+<li><a href="#plotting-with-ggplot2">Plotting with <code>ggplot2</code></a></li>
 <li><a href="#saving-the-plot">Saving the plot</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
@@ -320,7 +321,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>ggplot2 essentials (20 min)</h1>
-        <p>Last updated on 2026-07-02 |
+        <p>Last updated on 2026-07-03 |
 
         <a href="https://github.com/erinmgraham/era-ggplot2/edit/main/episodes/01_ggplot2_essentials.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -388,12 +389,41 @@ Australia, we more often use litres per 100 km). Higher values indicate
 better fuel efficiency.</p>
 <p>Because <code>mpg</code> is built into <code>ggplot2</code>, we can
 use it directly without needing to load an external file.</p>
+<div class="section level3">
+<h3 id="setup">Setup<a class="anchor" aria-label="anchor" href="#setup"></a></h3>
+<p>We are going to be using <strong>functions</strong> from the
+<strong><code>ggplot2</code></strong> package to create visualizations
+of data. Functions are predefined bits of code that automate more
+complicated actions. R itself has many built-in functions, but we can
+access many more by loading other <strong>packages</strong> of functions
+and data into R.</p>
+<p>If you don’t have a blank, untitled script open yet, go ahead and
+open one with <kbd>Shift+Cmd+N</kbd> (Mac) or <kbd>Shift+Ctrl+N</kbd>
+(Windows). Then save the file to your <code>scripts/</code> folder, and
+title it <code>workshop_code.R</code>.</p>
+<p>Earlier, you had to <strong>install</strong> the <code>ggplot2</code>
+package by running <code>install.packages("tidyverse")</code>. That
+installed the package onto your computer so that R can access it. In
+order to use it in our current session, we have to <strong>load</strong>
+the package using the <code>library()</code> function.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw">library</span><span class="op">(</span><span class="va">ggplot2</span><span class="op">)</span></span>
-<span><span class="fu">str</span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span></span></code></pre>
+<code class="sourceCode R"><span><span class="kw">library</span><span class="op">(</span><span class="va">ggplot2</span><span class="op">)</span></span></code></pre>
+</div>
+<p>We will use the <code>mpg</code> dataset that is prepackaged with
+<code>ggplot</code>.</p>
+<p>In R, the <code>str()</code> function provides a summary of the
+dataset’s internal structure. It tells you the total number of
+observations (rows) and variables (columns), the data type of each
+column (e.g., numeric, character, or factor), and displays the first few
+values of each variable.</p>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">str</span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -411,17 +441,16 @@ use it directly without needing to load an external file.</p>
  $ fl          : chr [1:234] "p" "p" "p" "p" ...
  $ class       : chr [1:234] "compact" "compact" "compact" "compact" ...</code></pre>
 </div>
+</div>
 <div class="section level3">
-<h3 id="data-dictionary">Data Dictionary<a class="anchor" aria-label="anchor" href="#data-dictionary"></a></h3>
+<h3 id="data-dictionary">Data dictionary<a class="anchor" aria-label="anchor" href="#data-dictionary"></a></h3>
 <p>The main variables we will use in this lesson are:</p>
 <ul><li>displ: engine size (litres)</li>
 <li>hwy: highway fuel efficiency (miles per gallon)</li>
 <li>cty: city fuel efficiency (miles per gallon)</li>
 <li>class: type of car (e.g. SUV, compact)</li>
 <li>drv: drive type (front-wheel, rear-wheel, 4-wheel)</li>
-</ul><p>Using this information, which variables might you choose to explore a
-relationship between engine size and fuel efficiency?</p>
-<div id="know-your-data" class="callout challenge">
+</ul><div id="know-your-data" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -446,7 +475,7 @@ represent fuel efficiency?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ul><li>numeric: displ, year, cyl, cty, hwy</li>
 <li>categorical: manufacturer, model, trans, drv, fl, class</li>
@@ -457,24 +486,22 @@ represent fuel efficiency?</li>
 </div>
 </div>
 </div>
-<p>Let’s start off building an example using the <code>mgp</code> data.
-The most basic function is <code>ggplot()</code>, which lets R know that
-we’re creating a new plot. Any of the arguments we give the
+</div>
+</section><section><h2 class="section-heading" id="plotting-with-ggplot2">Plotting with <code>ggplot2</code>
+<a class="anchor" aria-label="anchor" href="#plotting-with-ggplot2"></a></h2>
+<hr class="half-width"><p>Let’s start off building an example using the <code>mgp</code>
+data.</p>
+<p>The most basic function is <code>ggplot()</code>, which lets R know
+that we’re creating a new plot. Any of the arguments we give the
 <code>ggplot()</code> function are the <em>global</em> options for the
 plot - they apply to all layers on the plot.</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in `ggplot()`:
-! could not find function "ggplot"</code></pre>
-</div>
-<p>Here we called <code>ggplot()</code> and told it what data we want to
+<figure><img src="fig/01_ggplot2_essentials-rendered-blank-ggplot-1.png" alt="Blank plot, before adding any mapping aesthetics to ggplot()." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Here we called <code>ggplot()</code> and told it what data we want to
 show on our plot. This is not enough information to actually draw
 anything. However, it does create a blank plot that helps demonstrate
 how the components are put together. We’re essentially providing the
@@ -492,13 +519,7 @@ locations.</p>
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
 <span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in `ggplot()`:
-! could not find function "ggplot"</code></pre>
-</div>
-<p>Here we told <code>ggplot()</code> we want to plot the “displ” column
+<figure><img src="fig/01_ggplot2_essentials-rendered-ggplot-with-aes-1.png" alt="Plotting area with axes for a scatter plot of displacement and hwy fuel efficiency but no data points visible." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Here we told <code>ggplot()</code> we want to plot the “displ” column
 of the data frame on the x-axis, and the “hwy” column on the y-axis.
 Notice that we didn’t need to explicitly pass <code>aes</code> these
 columns (e.g. <code>x = mpg[, "disp"]</code>). This is because
@@ -510,7 +531,7 @@ tell <code>ggplot()</code> how to visually represent the data. For
 example, if we want to use <strong>points</strong> to represent the data
 in our plot, we use the <code>geom_point()</code> function.</p>
 <p>The <code>+</code> is used to add layers to a plot.</p>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -518,13 +539,7 @@ in our plot, we use the <code>geom_point()</code> function.</p>
 <span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in `ggplot()`:
-! could not find function "ggplot"</code></pre>
-</div>
-<p>There we have it! A scatter plot of points that represents the
+<figure><img src="fig/01_ggplot2_essentials-rendered-ggplot-with-aes-geom-1.png" alt="Scatter plot of displacement vs hwy fuel efficiency with data points." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>There we have it! A scatter plot of points that represents the
 relationship between <strong>x</strong> (‘displacement’) and
 <strong>y</strong> (‘highway fuel efficiency’) in our dataset.</p>
 <p>These three components — <strong>data</strong>, <strong>aesthetic
@@ -553,9 +568,9 @@ and displacement?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -567,21 +582,19 @@ and displacement?</p>
 </div>
 </div>
 </div>
-</div>
 </section><section><h2 class="section-heading" id="saving-the-plot">Saving the plot<a class="anchor" aria-label="anchor" href="#saving-the-plot"></a></h2>
 <hr class="half-width"><p>The <code>ggsave()</code> function allows you to save a plot created
 with <code>ggplot2</code> quickly and easily with just a filename:</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggsave</span><span class="op">(</span>filename <span class="op">=</span> <span class="st">"fig/my_ggplot.png"</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in `ggsave()`:
-! could not find function "ggsave"</code></pre>
+<pre class="output" tabindex="0"><code>Saving 7 x 7 in image</code></pre>
 </div>
 <p>Notice that we did not provide any additional arguments to
 <code>ggsave()</code>.</p>
@@ -677,8 +690,8 @@ where the key components of a plot can be extended with the additional
   "url": "https://erinmgraham.github.io/era-ggplot2/01_ggplot2_essentials.html",
   "identifier": "https://erinmgraham.github.io/era-ggplot2/01_ggplot2_essentials.html",
   "dateCreated": "2026-06-04",
-  "dateModified": "2026-07-02",
-  "datePublished": "2026-07-02"
+  "dateModified": "2026-07-03",
+  "datePublished": "2026-07-03"
 }
 
   </script><script>
