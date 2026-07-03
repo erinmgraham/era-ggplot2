@@ -25,7 +25,7 @@ source: Rmd
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r load-ggplot2, message=FALSE}
+```{r load-ggplot2, include=FALSE}
 library(ggplot2)
 ```
 
