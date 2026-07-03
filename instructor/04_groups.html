@@ -369,6 +369,12 @@ distribution of a variable.</p>
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_density</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in `ggplot()`:
+! could not find function "ggplot"</code></pre>
+</div>
 <p>These show the overall shape of the data. But sometimes we’re less
 interested in the full shape, and more in a quick summary. To do that,
 we can use a different type of plot.</p>
@@ -377,12 +383,18 @@ we can use a different type of plot.</p>
 distribution, spread, and skewness in a compact way.</p>
 <p>We replace <code>geom_density()</code> with
 <code>geom_boxplot()</code> in our plot.</p>
-<div class="codewrapper sourceCode" id="cb2">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in `ggplot()`:
+! could not find function "ggplot"</code></pre>
 </div>
 <p>Here we have single boxplot of highway fuel efficiency. This looks
 quite different to everything we’ve seen so far. Unlike density plots,
@@ -456,12 +468,18 @@ how we organise it into groups. We must map:</p>
 <code>class</code> → x (categorical group)</li>
 <li>
 <code>hwy</code> → y (numeric variable)</li>
-</ul><div class="codewrapper sourceCode" id="cb3">
+</ul><div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">class</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in `ggplot()`:
+! could not find function "ggplot"</code></pre>
 </div>
 <p>Here, each box represents the distribution of one group. The summary
 values we learned above are calculated for each class of vehicle.</p>
@@ -524,12 +542,18 @@ class to help visually separate groups.</p>
 </button>
 <div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">class</span>, y <span class="op">=</span> <span class="va">hwy</span>, fill <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in `ggplot()`:
+! could not find function "ggplot"</code></pre>
 </div>
 </div>
 </div>
