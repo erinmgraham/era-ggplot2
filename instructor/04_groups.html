@@ -237,7 +237,7 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#introducing-boxplots">Introducing Boxplots</a></li>
-<li><a href="#do-more-with-box-plots">Do More With Box plots</a></li>
+<li><a href="#do-more-with-boxplots">Do More With Boxplots</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -360,37 +360,33 @@ quickly?</li>
 </div>
 </div>
 </div>
+<p>In the previous episode, we used density plots to look at the
+distribution of a variable.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw">library</span><span class="op">(</span><span class="va">ggplot2</span><span class="op">)</span></span></code></pre>
-</div>
-<p>In the previous episode, we used density plots to look at the
-distribution of a variable.</p>
-<div class="codewrapper sourceCode" id="cb2">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_density</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
 <figure><img src="../fig/04_groups-rendered-dens-hwy-1.png" alt="Density plot of highway fuel efficiency." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>These show the overall shape of the data. But sometimes we’re less
 interested in the full shape, and more in a quick summary. To do that,
 we can use a different type of plot.</p>
 <section><h2 class="section-heading" id="introducing-boxplots">Introducing Boxplots<a class="anchor" aria-label="anchor" href="#introducing-boxplots"></a></h2>
-<hr class="half-width"><p>A boxplot is a visual summary of numerical data that displays its
-distribution, spread, and skewness in a compact way.</p>
+<hr class="half-width"><p>A <strong>boxplot</strong> is a visual summary of numerical data that
+displays its distribution, spread, and skewness in a compact way.</p>
 <p>We replace <code>geom_density()</code> with
 <code>geom_boxplot()</code> in our plot.</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/04_groups-rendered-box-hwy-1.png" alt="Box plot of highway fuel efficiency." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Here we have single boxplot of highway fuel efficiency. This looks
+<figure><img src="../fig/04_groups-rendered-box-hwy-1.png" alt="Boxplot of highway fuel efficiency." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Here we have single boxplot of highway fuel efficiency. This looks
 quite different to everything we’ve seen so far. Unlike density plots,
 this doesn’t show the full shape — it summarises the distribution.</p>
 <p>What do you think this plot is showing?</p>
@@ -426,7 +422,7 @@ whiskers.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Answers may vary.</p>
 </div>
@@ -441,16 +437,15 @@ whiskers.</li>
 <div id="density-vs-boxplot" class="callout-inner">
 <h3 class="callout-title">Density vs boxplot</h3>
 <div class="callout-content">
-<p><strong>Density</strong> plots show full shape, good for fewer
-groups. <strong>Boxplots</strong> show summary, better for many
-groups.</p>
+<p>Density plots show full shape, good for fewer groups.</p>
+<p>Boxplots show summary, better for many groups.</p>
 <p>Same underlying data, different level of detail.</p>
 </div>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="do-more-with-box-plots">Do More With Box plots<a class="anchor" aria-label="anchor" href="#do-more-with-box-plots"></a></h2>
-<hr class="half-width"><p>Box plots can be used in many ways to extract more information from
+</section><section><h2 class="section-heading" id="do-more-with-boxplots">Do More With Boxplots<a class="anchor" aria-label="anchor" href="#do-more-with-boxplots"></a></h2>
+<hr class="half-width"><p>Boxplots can be used in many ways to extract more information from
 our data. They are especially common in statistical analysis and
 reporting.</p>
 <p>So far, we’ve summarised a single distribution.</p>
@@ -462,24 +457,26 @@ how we organise it into groups. We must map:</p>
 <code>class</code> → x (categorical group)</li>
 <li>
 <code>hwy</code> → y (numeric variable)</li>
-</ul><div class="codewrapper sourceCode" id="cb4">
+</ul><div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">class</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">class</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/04_groups-rendered-box-hwy-class-1.png" alt="Box plot of highway fuel efficiency." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Here, each box represents the distribution of one group. The summary
+<figure><img src="../fig/04_groups-rendered-box-hwy-class-1.png" alt="Boxplot of highway fuel efficiency." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Here, each box represents the distribution of one group. The summary
 values we learned above are calculated for each class of vehicle.</p>
-<div id="mapping-change" class="callout">
+<div id="note-mapping-change" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <span class="callout-header">Callout</span>
-<div id="mapping-change" class="callout-inner">
-<h3 class="callout-title">Mapping Change</h3>
+<div id="note-mapping-change" class="callout-inner">
+<h3 class="callout-title">Note Mapping Change</h3>
 <div class="callout-content">
-<p>geom_density: x = hwy geom_boxplot (grouped): x = class, y = hwy</p>
+<p>geom_density: x = hwy</p>
+<p>geom_boxplot (grouped): x = class, y = hwy</p>
 </div>
 </div>
 </div>
@@ -503,7 +500,7 @@ values we learned above are calculated for each class of vehicle.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Answers may vary.</p>
 </div>
@@ -528,16 +525,17 @@ class to help visually separate groups.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">class</span>, y <span class="op">=</span> <span class="va">hwy</span>, fill <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">class</span>, y <span class="op">=</span> <span class="va">hwy</span>, fill <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/04_groups-rendered-box-hwy-class-colour-1.png" alt="Box plot of highway fuel efficiency." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
+<figure><img src="../fig/04_groups-rendered-box-hwy-class-colour-1.png" alt="Boxplot of highway fuel efficiency." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
 </div>
 </div>
 </div>

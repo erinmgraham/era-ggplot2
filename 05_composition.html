@@ -358,12 +358,6 @@
 </div>
 </div>
 </div>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw">library</span><span class="op">(</span><span class="va">ggplot2</span><span class="op">)</span></span></code></pre>
-</div>
 <p>In the previous episode, we used boxplots to summarise distributions
 and compare groups.</p>
 <p>Now we’ll look at a different question. <em>How is our data made
@@ -374,11 +368,12 @@ observations are divided into categories.</p>
 <hr class="half-width"><p>To start, let’s count how many observations fall into each vehicle
 <code>class</code>. As we learned with mapping, we map the group to the
 x-axis:</p>
-<div class="codewrapper sourceCode" id="cb2">
+<div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
 <figure><img src="fig/05_composition-rendered-bar-hwy-1.png" alt="Bar plot showing the number of mpg observations for each class of vehicle ." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>In this plot, <code>class</code> is a categorical variable and
@@ -417,11 +412,12 @@ observations belong to that class.</p>
 before. What if we wanted to know about the drive type (front-wheel,
 rear-wheel, 4-wheel) for the vehicles in each <code>class</code>. We use
 the <code>drv</code> variable.</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span>, fill <span class="op">=</span> <span class="va">drv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span>, fill <span class="op">=</span> <span class="va">drv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
 <figure><img src="fig/05_composition-rendered-bar-hwy-drv-1.png" alt="Bar plot showing the number of mpg observations for each class of vehicle ." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Bars are now split into segments where each segment represents a
@@ -463,11 +459,12 @@ relative to the whole.</p>
 <p>To show proportions instead of counts , add
 <code>position = "fill"</code> as an argument to
 <code>geom_bar()</code>:</p>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span>, fill <span class="op">=</span> <span class="va">drv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span>, fill <span class="op">=</span> <span class="va">drv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_bar</span><span class="op">(</span>position <span class="op">=</span> <span class="st">"fill"</span><span class="op">)</span></span></code></pre>
 </div>
 <figure><img src="fig/05_composition-rendered-bar-hwy-prop-1.png" alt="Bar plot showing the proportion of mpg observations for each class of vehicle and drive type." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>At first glance, this plot looks similar to the previous one.
