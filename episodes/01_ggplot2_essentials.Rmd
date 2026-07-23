@@ -1,5 +1,5 @@
 ---
-title: ggplot2 essentials (20 min)
+title: ggplot2 Essentials
 teaching: 20
 exercises: 10
 source: Rmd
@@ -16,7 +16,7 @@ source: Rmd
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How do I create plots with `ggplot2`?
+- How do I create plots with ggplot2?
 - How do I save the plots I created?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
