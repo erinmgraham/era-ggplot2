@@ -80,9 +80,11 @@ What else can we say about this plot?
 
 Answers may vary.
 
-In this plot there appears to be two peaks: one at approximately 15 hwy miles and a second higher peak at 26 hwy. We can see most cars cluster around the mid-range of highway fuel efficiency, with fewer cars at very high values.
-
-Not much we can say without more information.
+- The distribution appears bimodal, with peaks around 15 mpg and 26 mpg.
+- Most vehicles have highway fuel efficiency between approximately 20 and 30 mpg.
+- There are relatively few vehicles with very high highway fuel efficiency, producing a tail towards the higher values.
+- The presence of two peaks suggests the data may contain distinct groups of vehicles with different fuel-efficiency characteristics.
+- On its own, the plot shows the shape and spread of highway fuel efficiency, but it does not explain why these patterns occur.
 
 :::::::::::::::::::::::::
 
@@ -99,10 +101,6 @@ Create a density plot of city fuel efficiency (`cty`).
 
 :::::::::::::::  solution
 
-Answers may vary. 
-
-City fuel efficiency has a single cluster of vehicles at around 15-17 mpg with  wide width and shorter tail.
-
 
 ``` r
 ggplot(data = mpg, 
@@ -111,6 +109,12 @@ ggplot(data = mpg,
 ```
 
 <img src="fig/03_distributions-rendered-dens-cty-1.png" alt="Density plot of city fuel efficiency." style="display: block; margin: auto;" />
+
+- The distribution is concentrated around 15-18 mpg.
+- Most vehicles have city fuel efficiency between approximately 12 and 20 mpg.
+- The distribution is slightly right-skewed, with a small number of highly fuel-efficient vehicles extending the upper tail.
+- Compared with hwy, the values occur at lower fuel-efficiency levels.
+- The distribution appears somewhat narrower than the highway fuel-efficiency distribution.
 
 :::::::::::::::::::::::::
 
@@ -149,13 +153,10 @@ Notice how some groups overlap heavily — this can make comparisons harder.
 
 Answers may vary.
 
-Compact cars have the highest highway fuel efficiency.
-
-There are not as many compacts in the dataset as there are 2seaters and midsize vehicles.
-
-Subcompacts have the widest spread.
-
-Many of the curves are similar.
+- Compact cars tend to have the highest highway fuel efficiency.
+- SUVs and pickups tend to have the lowest highway fuel efficiency.
+- Subcompacts have the widest spread.
+- Many of the distributions overlap, particularly for compact, midsize, and subcompact vehicles.
 
 :::::::::::::::::::::::::
 
@@ -172,8 +173,6 @@ Create a density plot of city fuel efficiency (`cty`) for different classes of v
 
 :::::::::::::::  solution
 
-Answer may vary.
-
 
 ``` r
 ggplot(data = mpg, 
@@ -182,6 +181,12 @@ ggplot(data = mpg,
 ```
 
 <img src="fig/03_distributions-rendered-dens-cty-class-1.png" alt="Density plot of city fuel efficiency filled with colour for each class." style="display: block; margin: auto;" />
+
+- The overall pattern is similar to the highway fuel-efficiency plot, but all distributions are shifted toward lower values because city fuel efficiency is lower than highway fuel efficiency.
+- Compact and subcompact vehicles tend to have the highest city fuel efficiency.
+- SUVs and pickups tend to have the lowest city fuel efficiency.
+- The spread within each class is generally smaller than for highway fuel efficiency.
+- There is still substantial overlap between several classes, particularly compact, midsize, and subcompact vehicles.
 
 :::::::::::::::::::::::::
 

@@ -77,7 +77,10 @@ Each boxplot shows:
 
 :::::::::::::::  solution
 
-Answers may vary.
+- The median highway fuel efficiency is approximately 24 mpg.
+- The middle 50% of observations lie roughly between 18 and 27 mpg.
+- Several high-fuel-efficiency vehicles appear as outliers above the upper whisker.
+- There are few, if any, obvious low-end outliers.
 
 :::::::::::::::::::::::::
 
@@ -141,6 +144,13 @@ geom_boxplot (grouped): x = class, y = hwy
 :::::::::::::::  solution
 
 Answers may vary.
+
+- Compact and subcompact vehicles tend to have the highest median highway fuel efficiency.
+- SUVs and pickups tend to have the lowest median highway fuel efficiency.
+- Subcompact vehicles show one of the widest spreads.
+- Compact and midsize vehicles have similar distributions.
+- SUVs and pickups have similar distributions and are clearly different from compact cars.
+- Several groups contain outliers, particularly at higher fuel-efficiency values.
 
 :::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::::
