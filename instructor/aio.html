@@ -257,7 +257,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="02_relationships.html">2. Scatterplots and Relationships</a>
+        <a href="02_relationships.html">2. Explore Relationships</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -269,7 +269,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="03_distributions.html">3. Bar Charts and Distributions</a>
+        <a href="03_distributions.html">3. Understand Distributions</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -281,7 +281,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04_groups.html">4. Comparing Groups</a>
+        <a href="04_groups.html">4. Compare Groups</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -293,7 +293,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="05_composition.html">5. Composition</a>
+        <a href="05_composition.html">5. Explore Composition</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -305,7 +305,7 @@
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="06_presentation.html">6. Communicating Results</a>
+        <a href="06_presentation.html">6. Communicate Results</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -390,7 +390,7 @@
         
 <section id="aio-01_ggplot2_essentials"><p>Content from <a href="01_ggplot2_essentials.html">ggplot2 Essentials</a></p>
 <hr>
-<p>Last updated on 2026-10-01 |
+<p>Last updated on 2026-10-02 |
 
         <a href="https://github.com/erinmgraham/era-ggplot2/edit/main/episodes/01_ggplot2_essentials.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -443,7 +443,7 @@ provide.</p></li>
 <li><p><strong>Aesthetic Mappings </strong> are what connect the data to
 the graphics. They tell <code>ggplot()</code> how to use your data to
 affect how the graph looks, such as changing what is plotted on the X or
-Y axis, or the size or color of different data points.</p></li>
+Y axis, or the size or colour of different data points.</p></li>
 <li><p><strong>Geometric objects (geoms)</strong> are the parts of the
 plot that we can see, such as points, lines, or bars. Each
 <strong>geom</strong> creates a different type of plot (e.g. scatter
@@ -740,9 +740,9 @@ where the key components of a plot can be extended with the additional
 </div>
 </div>
 </div>
-</section></section><section id="aio-02_relationships"><p>Content from <a href="02_relationships.html">Scatterplots and Relationships</a></p>
+</section></section><section id="aio-02_relationships"><p>Content from <a href="02_relationships.html">Explore Relationships</a></p>
 <hr>
-<p>Last updated on 2026-10-01 |
+<p>Last updated on 2026-10-02 |
 
         <a href="https://github.com/erinmgraham/era-ggplot2/edit/main/episodes/02_relationships.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -786,16 +786,7 @@ explore relationships between variables in our dataset.</p>
 (<code>displ</code>) and city fuel efficiency (<code>cty</code>). We
 will also explore how additional aesthetic mappings and layers can help
 reveal patterns in the data.</p>
-<p>Recall our displacement vs city fuel efficiency plot.</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
-<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">cty</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span></span></code></pre>
-</div>
-<figure><img src="../fig/02_relationships-rendered-ggplot-with-aes-geom-cty-1.png" alt="Scatter plot of  displacement vs city fuel efficiency with data points." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><section><h2 class="section-heading" id="mapping-and-setting-aesthetics">Mapping and Setting Aesthetics<a class="anchor" aria-label="anchor" href="#mapping-and-setting-aesthetics"></a>
+<section><h2 class="section-heading" id="mapping-and-setting-aesthetics">Mapping and Setting Aesthetics<a class="anchor" aria-label="anchor" href="#mapping-and-setting-aesthetics"></a>
 </h2>
 <hr class="half-width">
 <p>So far, we have mapped variables to the x- and y-axes.</p>
@@ -806,7 +797,7 @@ and shape in two ways.</p>
 observations.</p>
 <p>For example, we can <strong>map</strong> a colour to each
 <code>class</code> of vehicle.</p>
-<div class="codewrapper sourceCode" id="cb2">
+<div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -835,7 +826,7 @@ observations.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ul>
 <li>Vehicle classes form distinct clusters.</li>
@@ -859,35 +850,118 @@ the datapoints.</p>
 <p>Lets modify the transparency of the points, using the
 <code>alpha</code> argument, which is especially helpful when you have a
 large amount of data which is very clustered.</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
 <span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">cty</span>,</span>
 <span>                     colour <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span>alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span></span></code></pre>
+<span>  <span class="fu">geom_point</span><span class="op">(</span>shape <span class="op">=</span> <span class="fl">17</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/02_relationships-rendered-aes_set_alpha-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Notice how the points are now more transparent now than the previous
-figure.</p>
+<figure><img src="../fig/02_relationships-rendered-aes_set_alpha-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and shaped like triangles." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Notice how all of the points are shaped like triangles, not just the
+ones of a particular class.</p>
 <p>Finally, we can <em>map variables</em> <strong>and</strong> <em>set
 values</em> for aethestics for a <strong>geom</strong>.</p>
 <p>In this example, we will move the <code>colour</code> by
 <code>class</code> aesthetic to the specific
 <code>geom_point()</code>.</p>
 <p>This plot should look like the one above, we’ve only moved the
-coloring to the layer in order to make more complex visualisations.</p>
-<div class="codewrapper sourceCode" id="cb4">
+colooring to the layer in order to make more complex visualisations.</p>
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
 <span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">cty</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>colour <span class="op">=</span> <span class="va">class</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span></span></code></pre>
+<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>colour <span class="op">=</span> <span class="va">class</span><span class="op">)</span>, shape <span class="op">=</span> <span class="fl">17</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/02_relationships-rendered-aes_set_map-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Here the colour mapping only applies to the points because it was
+<figure><img src="../fig/02_relationships-rendered-aes_set_map-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and shaped like triangles." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Here the colour mapping only applies to the points because it was
 specified within <code>geom_point()</code>.</p>
 <p>This allows different layers to use different aesthetic mappings.</p>
+<div id="aesthetic-mapping-vs-setting" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="aesthetic-mapping-vs-setting" class="callout-inner">
+<h3 class="callout-title">Aesthetic Mapping vs Setting</h3>
+<div class="callout-content">
+<ul>
+<li>Inside aes() = map an aesthetic to a variable in the data.</li>
+<li>Outside aes() = set an aesthetic to a fixed value.</li>
+</ul>
+<table class="table">
+<thead><tr>
+<th align="left">Goal</th>
+<th align="center">Code</th>
+</tr></thead>
+<tbody>
+<tr>
+<td align="left">Colour by car class</td>
+<td align="center">aes(colour = class)</td>
+</tr>
+<tr>
+<td align="left">Make all points blue</td>
+<td align="center">colour = “blue”</td>
+</tr>
+<tr>
+<td align="left">Size by engine size</td>
+<td align="center">aes(size = displ)</td>
+</tr>
+<tr>
+<td align="left">Make all points larger</td>
+<td align="center">size = 3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="mapping-vs-setting" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="mapping-vs-setting" class="callout-inner">
+<h3 class="callout-title">Mapping vs Setting</h3>
+<div class="callout-content">
+<p>Modify the point layer in the previous example so that:</p>
+<ul>
+<li>all points are blue</li>
+<li>point size depends on <code>cty</code>
+</li>
+</ul>
+<p>Hint: use <code>size</code> argument to change the point size.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<p>Answers may vary.</p>
+<p>Notice that the <code>city</code> argument is supplied inside the
+layer <code>aes()</code> function whereas the <code>colour</code>
+argument is supplied outside of <code>aes()</code>. This means that
+<code>colour</code> applies to all data points on the graph and is not
+related to a specific variable.</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">cty</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>size <span class="op">=</span> <span class="va">cty</span><span class="op">)</span>, colour <span class="op">=</span> <span class="st">"orange"</span><span class="op">)</span></span></code></pre>
+</div>
+<figure><img src="../fig/02_relationships-rendered-ch-set-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points size according to the value of city mileage and coloured orange." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
+</div>
+</div>
+</div>
+</div>
 <p>Changing the way a dataset is displayed visually is useful for
 distinguishing patterns and extracting information.</p>
 <p>Taking it one step further, we can add more <strong>geoms</strong> to
@@ -905,7 +979,7 @@ use the <code>+</code> symbol to stack the layers:</p>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
 <span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">cty</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>colour <span class="op">=</span> <span class="va">class</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>size <span class="op">=</span> <span class="va">cty</span><span class="op">)</span>, colour <span class="op">=</span> <span class="st">'orange'</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_smooth</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
@@ -913,7 +987,7 @@ use the <code>+</code> symbol to stack the layers:</p>
 </h3>
 <pre class="output" tabindex="0"><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
 </div>
-<figure><img src="../fig/02_relationships-rendered-cty-point-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible. It includes a blue trendline with shaded confidence interval." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The <code>geom_smooth()</code> layer adds a trend line to the plot,
+<figure><img src="../fig/02_relationships-rendered-cty-point-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points sized by city miledage and coloured orange. It includes a blue trendline with shaded confidence interval on top of the points." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>The <code>geom_smooth()</code> layer adds a trend line to the plot,
 making the overall relationship between engine size and fuel efficiency
 easier to see. In this case, it highlights that fuel efficiency tends to
 decrease as engine size increases.</p>
@@ -930,16 +1004,19 @@ of</em> the points.</p>
 <h3 class="callout-title">Layer Order Matters</h3>
 <div class="callout-content">
 <p>Switch the order of the point and smooth layers from the previous
-example. - What happened?</p>
+example.</p>
+<ul>
+<li>What happened?</li>
+</ul>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>To demonstrate, rearrange the drawing order.</p>
 <p>The points now get drawn over the line!</p>
@@ -952,82 +1029,14 @@ points.</p>
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
 <span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">cty</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu">geom_smooth</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>colour <span class="op">=</span> <span class="va">class</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span></span></code></pre>
+<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>size <span class="op">=</span> <span class="va">cty</span><span class="op">)</span>, colour <span class="op">=</span> <span class="st">'orange'</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
 </div>
-<figure><img src="../fig/02_relationships-rendered-ch_order-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible. It includes a blue trendline with error bars." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tip-more-aesthetics-setting-and-mapping" class="callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<span class="callout-header">Callout</span>
-<div id="tip-more-aesthetics-setting-and-mapping" class="callout-inner">
-<h3 class="callout-title">Tip: More aesthetics setting and mapping</h3>
-<div class="callout-content">
-<p>So far, we’ve seen how to use an aesthetic (such as
-<strong>colour</strong>) as a <em>mapping</em> to a variable in the
-data.</p>
-<p>For example, when we use <code>geom_point(aes(color = class))</code>,
-ggplot will give a different color to each class.</p>
-<p>But what if we want to change the color of all lines to blue?</p>
-<p>You may think that <code>geom_point(aes(color = "blue"))</code>
-should work, but it doesn’t.</p>
-<p>Since we don’t want to create a mapping to a specific variable, we
-move the color specification outside of the <code>aes()</code> function,
-like this: <code>geom_point(color="blue")</code>.</p>
-</div>
-</div>
-</div>
-<div id="setting-aesthetics" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="setting-aesthetics" class="callout-inner">
-<h3 class="callout-title">Setting Aesthetics</h3>
-<div class="callout-content">
-<p>Modify the color and size of the points on the point layer in the
-previous example.</p>
-<p>Hint: do not use the <code>aes()</code> function.</p>
-<p>Hint: use <code>size</code> to change the point size.</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
-</button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
-<div class="accordion-body">
-<p>Answers may vary.</p>
-<p>Notice that the <code>colour</code> argument is supplied outside of
-the <code>aes()</code> function.</p>
-<p>This means that it applies to all data points on the graph and is not
-related to a specific variable.</p>
-<div class="codewrapper sourceCode" id="cb9">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
-<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">displ</span>, y <span class="op">=</span> <span class="va">cty</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_smooth</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span>size <span class="op">=</span> <span class="fl">3</span>, color <span class="op">=</span> <span class="st">"orange"</span><span class="op">)</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
-</div>
-<figure><img src="../fig/02_relationships-rendered-ch-set-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
+<figure><img src="../fig/02_relationships-rendered-ch_order-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points sized by city miledage and coloured orange. It includes a blue trendline with shaded confidence interval below the points." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
 </div>
 </div>
 </div>
@@ -1064,9 +1073,9 @@ observations.</li>
 </div>
 </div>
 </div>
-</section></section><section id="aio-03_distributions"><p>Content from <a href="03_distributions.html">Bar Charts and Distributions</a></p>
+</section></section><section id="aio-03_distributions"><p>Content from <a href="03_distributions.html">Understand Distributions</a></p>
 <hr>
-<p>Last updated on 2026-10-01 |
+<p>Last updated on 2026-10-02 |
 
         <a href="https://github.com/erinmgraham/era-ggplot2/edit/main/episodes/03_distributions.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -1360,7 +1369,7 @@ particularly compact, midsize, and subcompact vehicles.</li>
 </h2>
 <hr class="half-width">
 <p>So far, we’ve used density plots to visualise distributions. Density
-plots are a smooth summary of the data.</p>
+plots provide a smooth view of the data.</p>
 <p>Another common way to display a distribution is with a
 <strong>histogram</strong>. Instead of drawing a smooth curve, a
 histogram groups values into bins and counts how many observations fall
@@ -1378,7 +1387,7 @@ into each bin.</p>
 </h3>
 <pre class="output" tabindex="0"><code>`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
 </div>
-<figure><img src="../fig/03_distributions-rendered-hwy-hist-1.png" alt="Density plot of highway fuel efficiency with data points." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Both density plots and histograms show the same underlying
+<figure><img src="../fig/03_distributions-rendered-hwy-hist-1.png" alt="Histogram of highway fuel efficiency with the default 30 bins." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Both density plots and histograms show the same underlying
 distribution.</p>
 <ul>
 <li>Density plots emphasise the overall shape.</li>
@@ -1478,9 +1487,9 @@ smooth curve.</li>
 </div>
 </div>
 </div>
-</section></section><section id="aio-04_groups"><p>Content from <a href="04_groups.html">Comparing Groups</a></p>
+</section></section><section id="aio-04_groups"><p>Content from <a href="04_groups.html">Compare Groups</a></p>
 <hr>
-<p>Last updated on 2026-10-01 |
+<p>Last updated on 2026-10-02 |
 
         <a href="https://github.com/erinmgraham/era-ggplot2/edit/main/episodes/04_groups.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 45 minutes</p>
@@ -1517,17 +1526,9 @@ quickly?</li>
 </div>
 </div>
 </div>
-<p>In the previous episode, we used density plots to look at the
-distribution of a variable.</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
-<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_density</span><span class="op">(</span><span class="op">)</span></span></code></pre>
-</div>
-<figure><img src="../fig/04_groups-rendered-dens-hwy-1.png" alt="Density plot of highway fuel efficiency." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>These show the overall shape of the data. But sometimes we’re less
+<p>In the previous episode, we used density plots nad histograms to look
+at the distributions of single variables.</p>
+<p>These show the overall shape of the data. But sometimes we’re less
 interested in the full shape, and more in a quick summary. To do that,
 we can use a different type of plot.</p>
 <section><h2 class="section-heading" id="introducing-boxplots">Introducing Boxplots<a class="anchor" aria-label="anchor" href="#introducing-boxplots"></a>
@@ -1537,7 +1538,7 @@ we can use a different type of plot.</p>
 displays its distribution, spread, and skewness in a compact way.</p>
 <p>We replace <code>geom_density()</code> with
 <code>geom_boxplot()</code> in our plot.</p>
-<div class="codewrapper sourceCode" id="cb2">
+<div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1586,7 +1587,7 @@ whiskers.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul>
 <li>The median highway fuel efficiency is approximately 24 mpg.</li>
@@ -1625,19 +1626,20 @@ reporting.</p>
 <p>What if we want that same summary for each class of vehicle?</p>
 <p>To get a boxplot for each <code>class</code>, we’re actually making
 two different changes here — first how we represent the data, and then
-how we organise it into groups. We must map:</p>
+how we organise it into groups.</p>
+<p>A boxplot doesn’t plot every data point. It plots a
+<strong>summary</strong> of a group of data points.</p>
+<p>Therefore we need:</p>
 <ul>
-<li>
-<code>class</code> → x (categorical group)</li>
-<li>
-<code>hwy</code> → y (numeric variable)</li>
+<li>a numeric variable to summarise (hwy)</li>
+<li>a grouping variable (class)</li>
 </ul>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
-<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">class</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span>, y <span class="op">=</span> <span class="va">hwy</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
 <figure><img src="../fig/04_groups-rendered-box-hwy-class-1.png" alt="Boxplot of highway fuel efficiency." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Here, each box represents the distribution of one group. The summary
@@ -1677,7 +1679,7 @@ values we learned above are calculated for each class of vehicle.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Answers may vary.</p>
 <ul>
@@ -1714,14 +1716,14 @@ class to help visually separate groups.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
-<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x<span class="op">=</span><span class="va">class</span>, y <span class="op">=</span> <span class="va">hwy</span>, fill <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span>, y <span class="op">=</span> <span class="va">hwy</span>, fill <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_boxplot</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
 <figure><img src="../fig/04_groups-rendered-box-hwy-class-colour-1.png" alt="Boxplot of highway fuel efficiency." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
@@ -1752,9 +1754,9 @@ outliers</li>
 </div>
 </div>
 </div>
-</section></section><section id="aio-05_composition"><p>Content from <a href="05_composition.html">Composition</a></p>
+</section></section><section id="aio-05_composition"><p>Content from <a href="05_composition.html">Explore Composition</a></p>
 <hr>
-<p>Last updated on 2026-10-01 |
+<p>Last updated on 2026-10-02 |
 
         <a href="https://github.com/erinmgraham/era-ggplot2/edit/main/episodes/05_composition.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 45 minutes</p>
@@ -1909,9 +1911,16 @@ others contain a mixture of drive types.</li>
 <p>So far, we’ve shown counts.</p>
 <p>Sometimes we care about proportions instead — how large each part is
 relative to the whole.</p>
-<p>To show proportions instead of counts , add
+<p>To show proportions instead of counts, add
 <code>position = "fill"</code> as an argument to
-<code>geom_bar()</code>:</p>
+<code>geom_bar()</code>.</p>
+<p>The position argument controls how the stacked sections are
+arranged.</p>
+<ul>
+<li>position = “stack” (the default) shows counts.</li>
+<li>position = “fill” rescales each bar so it has the same height
+(100%), allowing us to compare proportions.</li>
+</ul>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2006,9 +2015,9 @@ summary</li>
 </div>
 </div>
 </div>
-</section></section><section id="aio-06_presentation"><p>Content from <a href="06_presentation.html">Communicating Results</a></p>
+</section></section><section id="aio-06_presentation"><p>Content from <a href="06_presentation.html">Communicate Results</a></p>
 <hr>
-<p>Last updated on 2026-10-01 |
+<p>Last updated on 2026-10-02 |
 
         <a href="https://github.com/erinmgraham/era-ggplot2/edit/main/episodes/06_presentation.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 35 minutes</p>
@@ -2058,9 +2067,10 @@ questions:</p>
 <li>Composition</li>
 </ul>
 <p>The final step is communication.</p>
-<p>Even when a plot contains useful information, it may be difficult to
-read or interpret. <code>ggplot2</code> provides tools that help us
-organise information and make plots clearer for our audience.</p>
+<p>Even when a plot contains useful information, the message may not be
+obvious to the audience. <code>ggplot2</code> provides tools that help
+us organise information, direct attention, and make visualisations
+easier to interpret.</p>
 <section><h2 class="section-heading" id="improving-labels">Improving labels<a class="anchor" aria-label="anchor" href="#improving-labels"></a>
 </h2>
 <hr class="half-width">
@@ -2121,11 +2131,11 @@ panel for each drive type:</p>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
-<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span>, fill <span class="op">=</span> <span class="va">drv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span> <span class="va">drv</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/06_presentation-rendered-bar-hwy-facet-1.png" alt="Bar plot showing the number of mpg observations for each class of vehicle. Each drive type has its own panel." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="section level3">
+<figure><img src="../fig/06_presentation-rendered-bar-hwy-facet-1.png" alt="Bar plot showing the number of mpg observations for each class of vehicle. Each drive type has own colour and its own panel." style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="section level3">
 <h3 id="what-happened">What happened?<a class="anchor" aria-label="anchor" href="#what-happened"></a>
 </h3>
 <ul>
@@ -2161,7 +2171,7 @@ Why?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul>
 <li>The front-wheel-drive panel contains the largest variety of vehicle
@@ -2190,7 +2200,7 @@ that?</p>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span>, </span>
-<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">class</span>, fill <span class="op">=</span> <span class="va">drv</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">facet_wrap</span><span class="op">(</span><span class="op">~</span> <span class="va">drv</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">theme</span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">45</span><span class="op">)</span><span class="op">)</span></span></code></pre>
@@ -2205,7 +2215,7 @@ requires only a small modification.</p>
 <div id="make-a-plot-publication-ready" class="callout-inner">
 <h3 class="callout-title">Make a plot publication-ready</h3>
 <div class="callout-content">
-<p>Choose one plot from a previous episode.</p>
+<p>Choose one plot from a previous episodes.</p>
 <p>Improve it by:</p>
 <ul>
 <li>Adding a title</li>
@@ -2220,7 +2230,7 @@ requires only a small modification.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Answers may vary.</p>
 <div class="codewrapper sourceCode" id="cb6">
@@ -2319,8 +2329,8 @@ correct code</li>
   "url": "https://erinmgraham.github.io/era-ggplot2/instructor/aio.html",
   "identifier": "https://erinmgraham.github.io/era-ggplot2/instructor/aio.html",
   "dateCreated": "2026-07-03",
-  "dateModified": "2026-10-01",
-  "datePublished": "2026-10-01"
+  "dateModified": "2026-10-02",
+  "datePublished": "2026-10-02"
 }
 
   </script><script>
