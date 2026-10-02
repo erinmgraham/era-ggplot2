@@ -1,5 +1,5 @@
 ---
-title: Communicating Results
+title: Communicate Results
 teaching: 20
 exercises: 15
 source: Rmd
@@ -35,7 +35,7 @@ So far we've focused on creating plots to answer different questions:
 
 The final step is communication.
 
-Even when a plot contains useful information, it may be difficult to read or interpret. `ggplot2` provides tools that help us organise information and make plots clearer for our audience.
+Even when a plot contains useful information, the message may not be obvious to the audience. `ggplot2` provides tools that help us organise information, direct attention, and make visualisations easier to interpret.
 
 ## Improving labels
 
@@ -96,12 +96,12 @@ Instead of showing everything in one panel, we can create a separate panel for e
 
 ``` r
 ggplot(data = mpg, 
-       mapping = aes(x = class)) +
+       mapping = aes(x = class, fill = drv)) +
   geom_bar() +
   facet_wrap(~ drv)
 ```
 
-<img src="fig/06_presentation-rendered-bar-hwy-facet-1.png" alt="Bar plot showing the number of mpg observations for each class of vehicle. Each drive type has its own panel." style="display: block; margin: auto;" />
+<img src="fig/06_presentation-rendered-bar-hwy-facet-1.png" alt="Bar plot showing the number of mpg observations for each class of vehicle. Each drive type has own colour and its own panel." style="display: block; margin: auto;" />
 
 ### What happened?
 
@@ -145,7 +145,7 @@ We can rotate axis text to make it easier to read:
 
 ``` r
 ggplot(data = mpg, 
-       mapping = aes(x = class)) +
+       mapping = aes(x = class, fill = drv)) +
   geom_bar() +
   facet_wrap(~ drv) +
   theme(axis.text.x = element_text(angle = 45))
@@ -160,7 +160,7 @@ Rotating labels prevents overlapping text, improves readability, and requires on
 
 ## Make a plot publication-ready
 
-Choose one plot from a previous episode.
+Choose one plot from a previous episodes.
 
 Improve it by:
 

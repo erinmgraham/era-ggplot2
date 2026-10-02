@@ -1,5 +1,5 @@
 ---
-title: Bar Charts and Distributions
+title: Understand Distributions
 teaching: 20
 exercises: 10
 source: Rmd
@@ -204,8 +204,7 @@ Density plots are useful because they:
  
 ## Histograms
 
-
-So far, we've used density plots to visualise distributions. Density plots are a smooth summary of the data.
+So far, we've used density plots to visualise distributions. Density plots provide a smooth view of the data.
 
 Another common way to display a distribution is with a **histogram**.  Instead of drawing a smooth curve, a histogram groups values into bins and counts how many observations fall into each bin.
 
@@ -220,7 +219,7 @@ ggplot(data = mpg,
 `stat_bin()` using `bins = 30`. Pick better value `binwidth`.
 ```
 
-<img src="fig/03_distributions-rendered-hwy-hist-1.png" alt="Density plot of highway fuel efficiency with data points." style="display: block; margin: auto;" />
+<img src="fig/03_distributions-rendered-hwy-hist-1.png" alt="Histogram of highway fuel efficiency with the default 30 bins." style="display: block; margin: auto;" />
 
 
 Both density plots and histograms show the same underlying distribution.

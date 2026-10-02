@@ -1,5 +1,5 @@
 ---
-title: Scatterplots and Relationships
+title: Explore Relationships
 teaching: 20
 exercises: 10
 source: Rmd
@@ -27,18 +27,6 @@ source: Rmd
 We've seen how plots can be created quickly using the key components of a `ggplot` and we know that scatter plots can be used to explore relationships between variables in our dataset.
 
 Let's take a closer look at the relationship between engine size (`displ`) and city fuel efficiency (`cty`). We will also explore how additional aesthetic mappings and layers can help reveal patterns in the data.
-
-Recall our displacement vs city fuel efficiency plot.
-
-
-``` r
-ggplot(data = mpg, 
-       mapping = aes(x = displ, y = cty)) + 
-  geom_point()
-```
-
-<img src="fig/02_relationships-rendered-ggplot-with-aes-geom-cty-1.png" alt="Scatter plot of  displacement vs city fuel efficiency with data points." style="display: block; margin: auto;" />
-
 
 ## Mapping and Setting Aesthetics
 
@@ -90,31 +78,76 @@ Lets modify the transparency of the points, using the `alpha` argument, which is
 ggplot(data = mpg, 
        mapping = aes(x = displ, y = cty,
                      colour = class)) + 
-  geom_point(alpha = 0.3)
+  geom_point(shape = 17)
 ```
 
-<img src="fig/02_relationships-rendered-aes_set_alpha-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible." style="display: block; margin: auto;" />
+<img src="fig/02_relationships-rendered-aes_set_alpha-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and shaped like triangles." style="display: block; margin: auto;" />
 
-Notice how the points are now more transparent now than the previous figure. 
+Notice how all of the points are shaped like triangles, not just the ones of a particular class.
 
 Finally, we can _map variables_ **and** _set values_ for aethestics for a **geom**. 
 
 In this example, we will move the `colour` by `class` aesthetic to the specific `geom_point()`. 
 
-This plot should look like the one above, we've only moved the coloring to the layer in order to make more complex visualisations.
+This plot should look like the one above, we've only moved the colooring to the layer in order to make more complex visualisations.
 
 
 ``` r
 ggplot(data = mpg, 
        mapping = aes(x = displ, y = cty)) + 
-  geom_point(aes(colour = class), alpha = 0.3)
+  geom_point(aes(colour = class), shape = 17)
 ```
 
-<img src="fig/02_relationships-rendered-aes_set_map-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible." style="display: block; margin: auto;" />
+<img src="fig/02_relationships-rendered-aes_set_map-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and shaped like triangles." style="display: block; margin: auto;" />
 
 Here the colour mapping only applies to the points because it was specified within `geom_point()`. 
 
 This allows different layers to use different aesthetic mappings.
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Aesthetic Mapping vs Setting
+
+- Inside aes() = map an aesthetic to a variable in the data.
+- Outside aes() = set an aesthetic to a fixed value.
+
+| Goal    | Code |
+| :---    | :--:|
+| Colour by car class   | aes(colour = class)  |
+| Make all points blue     | colour = "blue"  |
+| Size by engine size | aes(size = displ)  |
+| Make all points larger | size = 3  |
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+##  Mapping vs Setting
+
+Modify the point layer in the previous example so that:
+
+- all points are blue
+- point size depends on `cty`
+
+Hint: use `size` argument to change the point size.
+
+:::::::::::::::  solution
+
+Answers may vary.
+
+Notice that the `city` argument is supplied inside the layer `aes()` function whereas the `colour` argument is supplied outside of `aes()`. This means that `colour` applies to all data points on the graph and is not related to a specific variable.
+
+
+``` r
+ggplot(data = mpg, 
+       mapping = aes(x = displ, y = cty)) +
+  geom_point(aes(size = cty), colour = "orange")
+```
+
+<img src="fig/02_relationships-rendered-ch-set-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points size according to the value of city mileage and coloured orange." style="display: block; margin: auto;" />
+
+:::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Changing the way a dataset is displayed visually is useful for distinguishing patterns and extracting information. 
 
@@ -130,7 +163,7 @@ Let's add a `geom_smooth()` layer to the plot. Recall we use the `+` symbol to s
 ``` r
 ggplot(data = mpg, 
        mapping = aes(x = displ, y = cty)) + 
-  geom_point(aes(colour = class), alpha = 0.3) +
+  geom_point(aes(size = cty), colour = 'orange') +
   geom_smooth()
 ```
 
@@ -138,7 +171,7 @@ ggplot(data = mpg,
 `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
 
-<img src="fig/02_relationships-rendered-cty-point-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible. It includes a blue trendline with shaded confidence interval." style="display: block; margin: auto;" />
+<img src="fig/02_relationships-rendered-cty-point-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points sized by city miledage and coloured orange. It includes a blue trendline with shaded confidence interval on top of the points." style="display: block; margin: auto;" />
 
 The `geom_smooth()` layer adds a trend line to the plot, making the overall relationship between engine size and fuel efficiency easier to see. In this case, it highlights that fuel efficiency tends to decrease as engine size increases.
 
@@ -150,10 +183,12 @@ What if we wanted to see the points on top of the lines?
 
 ## Layer Order Matters
 
-Switch the order of the point and smooth layers from the previous example. 
+Switch the order of the point and smooth layers from the previous example.
+ 
 - What happened?
 
 :::::::::::::::  solution
+
 To demonstrate, rearrange the drawing order. 
   
 The points now get drawn over the line! 
@@ -165,71 +200,17 @@ If we look closely the smooth line was drawn first, followed by the points.
 ggplot(data = mpg, 
        mapping = aes(x = displ, y = cty)) + 
   geom_smooth() +
-  geom_point(aes(colour = class), alpha = 0.3)
+  geom_point(aes(size = cty), colour = 'orange')
 ```
 
 ``` output
 `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
 
-<img src="fig/02_relationships-rendered-ch_order-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class and made thirty percent visible. It includes a blue trendline with error bars." style="display: block; margin: auto;" />
+<img src="fig/02_relationships-rendered-ch_order-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points sized by city miledage and coloured orange. It includes a blue trendline with shaded confidence interval below the points." style="display: block; margin: auto;" />
 
 :::::::::::::::::::::::::
-
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## Tip: More aesthetics setting and mapping
-
-So far, we've seen how to use an aesthetic (such as **colour**) as a *mapping* to a variable in the data. 
-
-For example, when we use `geom_point(aes(color = class))`, ggplot will give a different color to each class. 
-
-But what if we want to change the color of all lines to blue? 
-
-You may think that `geom_point(aes(color = "blue"))` should work, but it doesn't. 
-
-Since we don't want to create a mapping to a specific variable, we move the color specification outside of the `aes()` function, like this: `geom_point(color="blue")`.
-
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Setting Aesthetics
-
-Modify the color and size of the points on the point layer in the previous example.
-
-Hint: do not use the `aes()` function.
-
-Hint: use `size` to change the point size.
-
-:::::::::::::::  solution
-
-Answers may vary.
-
-Notice that the `colour` argument is supplied outside of the `aes()` function. 
-
-This means that it applies to all data points on the graph and is not related to a specific variable.
-
-
-``` r
-ggplot(data = mpg, 
-       mapping = aes(x = displ, y = cty)) +
-  geom_smooth() +
-  geom_point(size = 3, color = "orange")
-```
-
-``` output
-`geom_smooth()` using method = 'loess' and formula = 'y ~ x'
-```
-
-<img src="fig/02_relationships-rendered-ch-set-1.png" alt="Scatter plot of displacement vs city fuel efficiency with data points coloured by class." style="display: block; margin: auto;" />
-
-:::::::::::::::::::::::::
-:::::::::::::::::::::::::::::::::::::::  
 
 
 In this episode, we used scatterplots to explore the relationship between engine size and fuel efficiency. 

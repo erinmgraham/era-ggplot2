@@ -1,5 +1,5 @@
 ---
-title: Comparing Groups
+title: Compare Groups
 teaching: 25
 exercises: 20
 source: Rmd
@@ -25,16 +25,7 @@ source: Rmd
 
 
 
-In the previous episode, we used density plots to look at the distribution of a variable.
-
-
-``` r
-ggplot(data = mpg, 
-       mapping = aes(x = hwy)) +
-  geom_density()
-```
-
-<img src="fig/04_groups-rendered-dens-hwy-1.png" alt="Density plot of highway fuel efficiency." style="display: block; margin: auto;" />
+In the previous episode, we used density plots nad histograms to look at the distributions of single variables.
 
 These show the overall shape of the data. But sometimes we’re less interested in the full shape, and more in a quick summary. To do that, we can use a different type of plot.
 
@@ -106,15 +97,19 @@ So far, we’ve summarised a single distribution.
 
 What if we want that same summary for each class of vehicle?
 
-To get a boxplot for each `class`, we’re actually making two different changes here — first how we represent the data, and then how we organise it into groups. We must map:
+To get a boxplot for each `class`, we’re actually making two different changes here — first how we represent the data, and then how we organise it into groups.
 
-- `class` → x (categorical group)
-- `hwy` → y (numeric variable)
+A boxplot doesn't plot every data point. It plots a **summary** of a group of data points.
+
+Therefore we need:
+
+- a numeric variable to summarise (hwy)
+- a grouping variable (class)
 
 
 ``` r
 ggplot(data = mpg, 
-       mapping = aes(x=class, y = hwy)) +
+       mapping = aes(x = class, y = hwy)) +
   geom_boxplot()
 ```
 
@@ -166,7 +161,7 @@ Reuse what we already know and use `fill` to colour each class to help visually 
 
 ``` r
 ggplot(data = mpg, 
-       mapping = aes(x=class, y = hwy, fill = class)) +
+       mapping = aes(x = class, y = hwy, fill = class)) +
   geom_boxplot()
 ```
 
